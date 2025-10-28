@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ReactNode } from 'react'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+ 
+
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
@@ -33,6 +37,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-[#FAFAF8]">
         {children}
       </body>
+      <GoogleAnalytics gaId="G-5N6RJJZ7DN" />
+
     </html>
   )
 }
