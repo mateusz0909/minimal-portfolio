@@ -3,6 +3,7 @@ import Script from 'next/script'
 import type { Metadata } from 'next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { projectRoute } from '@/app/data/projects'
+import { CopyButton } from '@/components/CopyButton'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -168,13 +169,9 @@ export default function Page() {
         <div className="space-y-6 md:space-y-3">
           <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
             <span className="text-[16px] font-bold text-[#333] whitespace-nowrap">Email:</span>
-            <a
-              href="mailto:mateusz.byrtus@icloud.com"
-              className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[#333] underline decoration-2 underline-offset-4 hover:opacity-70"
-            >
-              <span className="min-w-0 break-words">mateusz.byrtus@icloud.com</span>
-              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
-            </a>
+            <div className="mt-1 md:mt-0">
+              <CopyButton content="mateusz.byrtus@icloud.com" label="Copy email address" />
+            </div>
           </div>
 
           <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
