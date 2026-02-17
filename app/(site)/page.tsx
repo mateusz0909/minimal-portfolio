@@ -1,9 +1,15 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { projectRoute } from '@/app/data/projects'
 import { CopyButton } from '@/components/CopyButton'
+import calmNowImg from '@/public/calmNow.png'
+import dztImg from '@/public/dzt-icon.png'
+import feelingJournalImg from '@/public/feelingJournal.jpeg'
+import lemmiImg from '@/public/lemmi.png'
+import lumaImg from '@/public/luma.png'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -74,6 +80,7 @@ export default function Page() {
                 'A dark, brutalist editorial magazine about discipline, stoicism, and the body. WebGL shaders, cinematic scroll animations, Sanity CMS, and newsletter — built solo in two weeks.',
               route: projectRoute('dopoki-zycie-trwa'),
               tech: 'Tech: Next.js 16, React 19, Sanity CMS, Three.js / R3F, GSAP, Tailwind CSS 4',
+              logo: dztImg,
             },
             {
               title: 'Lemmi Studio',
@@ -82,6 +89,7 @@ export default function Page() {
                 'A tool that turns raw app screenshots into ready-to-use App Store visuals, marketing copy and landing pages. Built to help indie developers who ship fast but don\'t have time for design or copywriting.',
               route: projectRoute('lemmi-studio'),
               tech: 'Tech: Node.js, React, Supabase, Gemini API, Stripe',
+              logo: lemmiImg,
             },
             {
               title: 'Feeling Journal',
@@ -90,6 +98,7 @@ export default function Page() {
                 'Emotion tracking app for iOS that helps users reflect on emotional patterns with weekly AI-generated summaries. Built from idea to App Store in one week.',
               route: projectRoute('feeling-journal'),
               tech: 'Tech: SwiftUI, SwiftData, CloudKit, Gemini API',
+              logo: feelingJournalImg,
             },
             {
               title: 'Calm Now',
@@ -98,6 +107,7 @@ export default function Page() {
                 'A minimal, calming box breathing experience built in two weeks to explore focused UI design and StoreKit paywalls.',
               route: projectRoute('calm-now'),
               tech: 'Tech: SwiftUI, SwiftData, CloudKit, StoreKit',
+              logo: calmNowImg,
             },
             {
               title: 'Luma Breathwork',
@@ -106,6 +116,7 @@ export default function Page() {
                 'A breathwork app that guides users through Wim Hof style sessions. Reached a 13.3% App Store conversion rate and holds a 4.9-star rating.',
               route: projectRoute('luma-breathwork'),
               tech: 'Tech: Swift, SwiftUI, StoreKit',
+              logo: lumaImg,
             },
           ].map((project) => (
             <article
@@ -113,7 +124,16 @@ export default function Page() {
               className="bg-[var(--surface)] rounded-2xl p-6 flex flex-col gap-[18px] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[14px_14px_30px_-30px_rgba(0,0,0,0.45)]"
             >
               <div className="flex justify-between items-center">
-                <h3 className="font-sans text-2xl font-bold text-[var(--heading)]">{project.title}</h3>
+                <div className="flex items-center gap-3">
+                  <Image
+                    src={project.logo}
+                    alt={`${project.title} icon`}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-lg border border-[var(--edge)] object-contain"
+                  />
+                  <h3 className="font-sans text-2xl font-bold text-[var(--heading)]">{project.title}</h3>
+                </div>
                 <span className="text-[16px] leading-7 text-[var(--body)]">{project.year}</span>
               </div>
               <p className="text-[16px] leading-7 text-[var(--body)]">
