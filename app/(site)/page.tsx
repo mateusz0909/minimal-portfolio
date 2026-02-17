@@ -68,6 +68,14 @@ export default function Page() {
         <div className="flex flex-col gap-4">
           {[
             {
+              title: 'Dopóki Życie Trwa',
+              year: '2025',
+              description:
+                'A dark, brutalist editorial magazine about discipline, stoicism, and the body. WebGL shaders, cinematic scroll animations, Sanity CMS, and newsletter — built solo in two weeks.',
+              route: projectRoute('dopoki-zycie-trwa'),
+              tech: 'Tech: Next.js 16, React 19, Sanity CMS, Three.js / R3F, GSAP, Tailwind CSS 4',
+            },
+            {
               title: 'Lemmi Studio',
               year: '2025',
               description:

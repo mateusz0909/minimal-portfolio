@@ -1,10 +1,11 @@
 import type { StaticImageData } from 'next/image'
 import calmNowImg from '@/public/calmNow.png'
+import dztImg from '@/public/dzt-icon.png'
 import feelingJournalImg from '@/public/feelingJournal.jpeg'
 import lemmiImg from '@/public/lemmi.png'
 import lumaImg from '@/public/luma.png'
 
-export type ProjectSlug = 'lemmi-studio' | 'luma-breathwork' | 'feeling-journal' | 'calm-now'
+export type ProjectSlug = 'dopoki-zycie-trwa' | 'lemmi-studio' | 'luma-breathwork' | 'feeling-journal' | 'calm-now'
 
 export type ProjectRoute = `/projects/${ProjectSlug}`
 
@@ -30,6 +31,64 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'dopoki-zycie-trwa',
+    title: 'Dopóki Życie Trwa',
+    subtitle: 'Monastic noir digital magazine about discipline, stoicism, and the body',
+    timeline: 'November – December 2025 (2 weeks)',
+    status: {
+      label: 'Live personal project',
+      color: '#65D898',
+    },
+    description:
+      'A dark, brutalist editorial platform chronicling a personal journey through carnivore diet, cold exposure, ultra-endurance, and stoic philosophy. Full CMS, WebGL shaders, cinematic scroll animations, and newsletter — built solo in two weeks.',
+    technologies: ['Next.js 16', 'React 19', 'Sanity CMS', 'Three.js / R3F', 'GSAP', 'Tailwind CSS 4', 'Resend', 'Vercel'],
+    metrics: [
+      { label: 'Build time', value: '2 weeks (solo, nights & weekends)' },
+      { label: 'Features shipped', value: '30+' },
+      { label: 'Content categories', value: '3 pillars' },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        body: 'Dopóki Życie Trwa ("While Life Lasts") is a monastic noir editorial magazine — a raw, maximalist record of an inner journey through physical discipline and spiritual depth. The site serves as a living archive of articles organized around three pillars: CIAŁO (Body), HART (Grit), and DUCH (Spirit). Built with a custom "monastic noir" visual identity — dark tones, desaturated imagery, cinematic typography, and WebGL-driven hero experience.',
+      },
+      {
+        heading: 'Key Highlights',
+        bullets: [
+          'WebGL shader hero: Custom GLSL fragment/vertex shaders via React Three Fiber creating an ice-like, breathing texture with center glow, vignette, and hover-reactive distortion.',
+          'Cinematic scroll experience: GSAP ScrollTrigger–powered parallax dispersal — each typographic line animates independently with blur, scale, and directional movement.',
+          'Headless CMS editorial system: Sanity Studio with custom schemas for articles, categories, authors, and block content — including monologue blocks, protocol boxes, and data tables.',
+          'Newsletter & audience building: Email capture via Resend API with Zod validation, inline and footer form variants, and a dedicated landing page.',
+          'Full SEO & content distribution: Dynamic sitemap, RSS feed, JSON-LD structured data, Open Graph, robots.txt, and Google Analytics integration.',
+        ],
+      },
+      {
+        heading: 'Technical Notes',
+        bullets: [
+          'Next.js 16 + React 19 with App Router, server components, ISR (60s revalidation), and dynamic draft preview mode via draftMode().',
+          'Three.js / React Three Fiber for the hero section — custom GLSL shaders with vertex displacement, UV distortion, desaturation, cold tinting, and pulsating center glow.',
+          'GSAP ScrollTrigger orchestrating pinned hero parallax, manifesto text reveal, image parallax, and horizontal marquee for category titles.',
+          'Sanity CMS with custom Portable Text components (monologue, protocol box, data table), markdown alternative input, image hotspot cropping, and YAML-based article import scripts.',
+          'Resend for transactional newsletter emails with server-side API route and client-side optimistic UI.',
+          'Tailwind CSS 4 with custom design tokens: onyx, bone, blood, steel, charcoal — enforcing the monastic noir visual language across every component.',
+        ],
+      },
+      {
+        heading: 'Results',
+        bullets: [
+          'Full editorial platform delivered in two weeks, solo, with 30+ features and a cohesive dark design system.',
+          'Custom WebGL hero renders at 60fps with smooth pointer-reactive distortion and cinematic scroll dispersal.',
+          'Content pipeline from YAML → Sanity import script → Studio → live article with SEO, RSS, and newsletter in a single workflow.',
+          'Lighthouse performance optimized: dynamic imports for Three.js, lazy-loaded images, font optimization (Oswald + Montserrat via next/font), and ISR caching.',
+        ],
+      },
+    ],
+    links: [
+      { label: 'Visit dopokizycietrwa.pl', href: 'https://dopokizycietrwa.pl', external: true },
+    ],
+    logo: dztImg,
+  },
   {
     slug: 'lemmi-studio',
     title: 'Lemmi Studio',
