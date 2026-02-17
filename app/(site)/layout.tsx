@@ -5,10 +5,10 @@ import Nav from '@/components/Nav'
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div>
-      <header className="sticky top-0 z-40 bg-[#FAFAF8]/80 backdrop-blur border-b border-[#EAEAE7]">
+      <header className="sticky top-0 z-40 backdrop-blur border-b" style={{ backgroundColor: 'color-mix(in srgb, var(--page) 80%, transparent)', borderColor: 'var(--edge-light)' }}>
         <div className="max-w-[672px] mx-auto px-6 py-3 flex items-center justify-between">
           <a href="#home" className="inline-flex items-center" aria-label="Mateusz Byrtus home">
-            <Image src="/mb-logo.png" alt="MB logo" width={158} height={102} priority className="h-7 w-auto md:h-8" />
+            <Image src="/mb-logo.png" alt="MB logo" width={158} height={102} priority className="h-7 w-auto md:h-8 dark:invert" />
           </a>
           <Nav />
         </div>

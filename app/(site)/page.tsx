@@ -34,13 +34,13 @@ export default function Page() {
         />
 
         <div className="flex flex-col gap-8">
-          <h1 className="font-sans text-[36px] leading-[40px] font-bold text-[#252525] tracking-[-1.5px]">
+          <h1 className="font-sans text-[36px] leading-[40px] font-bold text-[var(--heading)] tracking-[-1.5px]">
             Hi, I&apos;m Mateusz.
             <br />I&apos;m a product builder
             <br />based in Warsaw, Poland.
           </h1>
 
-          <div className="text-[16px] leading-7 text-[#333] space-y-8">
+          <div className="text-[16px] leading-7 text-[var(--body)] space-y-8">
             <p>
               By day Product Owner at Assembly Global.
               <br />By night I make small, AI-powered tools and apps.
@@ -55,7 +55,7 @@ export default function Page() {
 
           <Link
             href={{ hash: 'contact' }}
-            className="inline-flex items-center gap-2 text-[16px] leading-7 text-[#333] underline decoration-2 underline-offset-4 hover:opacity-70"
+            className="inline-flex items-center gap-2 text-[16px] leading-7 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
           >
             Get in touch
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -64,7 +64,7 @@ export default function Page() {
       </section>
 
       <section id="projects" className="py-8 border-t border-transparent scroll-mt-[var(--header-h)]">
-        <h2 className="font-sans text-[32px] leading-8 font-bold text-black tracking-[-0.5px] mb-8">Recent Projects</h2>
+        <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-8">Recent Projects</h2>
         <div className="flex flex-col gap-4">
           {[
             {
@@ -110,13 +110,13 @@ export default function Page() {
           ].map((project) => (
             <article
               key={project.title}
-              className="bg-[#F5F5F5] rounded-2xl p-6 flex flex-col gap-[18px] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[14px_14px_30px_-30px_rgba(0,0,0,0.45)]"
+              className="bg-[var(--surface)] rounded-2xl p-6 flex flex-col gap-[18px] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[14px_14px_30px_-30px_rgba(0,0,0,0.45)]"
             >
               <div className="flex justify-between items-center">
-                <h3 className="font-sans text-2xl font-bold text-black">{project.title}</h3>
-                <span className="text-[16px] leading-7 text-[#333]">{project.year}</span>
+                <h3 className="font-sans text-2xl font-bold text-[var(--heading)]">{project.title}</h3>
+                <span className="text-[16px] leading-7 text-[var(--body)]">{project.year}</span>
               </div>
-              <p className="text-[16px] leading-7 text-[#333]">
+              <p className="text-[16px] leading-7 text-[var(--body)]">
                 {project.description}
                 <br />
                 <br />
@@ -124,7 +124,7 @@ export default function Page() {
               </p>
               <Link
                 href={project.route}
-                className="inline-flex items-center gap-2 text-[16px] leading-7 text-[#333] underline decoration-2 underline-offset-4 hover:opacity-70 self-start"
+                className="inline-flex items-center gap-2 text-[16px] leading-7 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70 self-start"
               >
                 View project
                 <ArrowRight className="h-4 w-4" aria-hidden />
@@ -135,15 +135,15 @@ export default function Page() {
       </section>
 
       <section id="process" className="py-8 scroll-mt-[var(--header-h)]">
-        <h2 className="font-sans text-[32px] leading-8 font-bold text-black tracking-[-0.5px] mb-4">My Process</h2>
+        <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-4">My Process</h2>
         <div className="mt-2 rounded-none">
-          <div className="py-4 font-mono text-[16px] leading-7 text-[#333]">I keep things simple and fast:</div>
-          <div className="divide-y divide-[#333]">
-            <div className="py-4 font-mono text-[16px] leading-7 text-[#333] pl-8">1. Spot a real problem (often my own)</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[#333] pl-8">2. Sketch a "good enough" solution</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[#333] pl-8">3. Build quickly with help from AI tools like Cursor</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[#333] pl-8">4. Ship, learn, iterate, repeat</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[#333]">
+          <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)]">I keep things simple and fast:</div>
+          <div className="divide-y divide-[var(--divider)]">
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">1. Spot a real problem (often my own)</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">2. Sketch a &quot;good enough&quot; solution</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">3. Build quickly with help from AI tools like Cursor</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">4. Ship, learn, iterate, repeat</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)]">
               It&apos;s not about perfect launches — it&apos;s about learning, improving, and having fun with the process
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function Page() {
       </section>
 
       <section id="stack" className="py-8 scroll-mt-[var(--header-h)]">
-        <h2 className="font-sans text-[32px] leading-8 font-bold text-black tracking-[-0.5px] mb-8">Stack</h2>
+        <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-8">Stack</h2>
         <div className="flex flex-col gap-4">
           {[
             { heading: 'Languages', body: 'Python · Swift · SQL · JavaScript' },
@@ -164,31 +164,31 @@ export default function Page() {
             { heading: 'Development Tools', body: 'VSCode · Xcode · Cursor · Git · GitHub · Docker' },
             { heading: 'Product & Design', body: 'Figma · JIRA · Notion · Hotjar' },
           ].map((card) => (
-            <article key={card.heading} className="bg-[#F5F5F5] rounded-2xl p-6 space-y-3">
-              <h3 className="font-sans text-2xl font-bold text-black">{card.heading}</h3>
-              <p className="text-[16px] leading-7 text-[#333]">{card.body}</p>
+            <article key={card.heading} className="bg-[var(--surface)] rounded-2xl p-6 space-y-3">
+              <h3 className="font-sans text-2xl font-bold text-[var(--heading)]">{card.heading}</h3>
+              <p className="text-[16px] leading-7 text-[var(--body)]">{card.body}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section id="contact" className="py-8 scroll-mt-[var(--header-h)]">
-        <h2 className="font-sans text-[32px] leading-8 font-bold text-black tracking-[-0.5px] mb-8">Contact</h2>
+        <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-8">Contact</h2>
         <div className="space-y-6 md:space-y-3">
           <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
-            <span className="text-[16px] font-bold text-[#333] whitespace-nowrap">Email:</span>
+            <span className="text-[16px] font-bold text-[var(--body)] whitespace-nowrap">Email:</span>
             <div className="mt-1 md:mt-0">
               <CopyButton content="mateusz.byrtus@icloud.com" label="Copy email address" />
             </div>
           </div>
 
           <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
-            <span className="text-[16px] font-bold text-[#333] whitespace-nowrap">X.com:</span>
+            <span className="text-[16px] font-bold text-[var(--body)] whitespace-nowrap">X.com:</span>
             <a
               href="https://x.com/mateusz_b9"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[#333] underline decoration-2 underline-offset-4 hover:opacity-70"
+              className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
             >
               <span className="min-w-0 break-words">x.com/mateusz_b9</span>
               <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
@@ -197,8 +197,8 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="py-8 border-t border-black mt-8">
-        <p className="text-center text-[16px] leading-7 text-[#252525]">© 2025 · Mateusz Byrtus · Warsaw, Poland</p>
+      <div className="py-8 border-t border-[var(--footer-border)] mt-8">
+        <p className="text-center text-[16px] leading-7 text-[var(--heading)]">© 2025 · Mateusz Byrtus · Warsaw, Poland</p>
       </div>
     </main>
   )

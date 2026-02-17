@@ -24,7 +24,7 @@ export function CopyButton({ content, label }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-2 text-[16px] leading-6 text-[#333] underline decoration-2 underline-offset-4 hover:opacity-70 transition-opacity"
+      className="inline-flex items-center gap-2 text-[16px] leading-6 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70 transition-opacity"
       aria-label={label || `Copy ${content}`}
     >
       <span className="min-w-0 break-words">{content}</span>

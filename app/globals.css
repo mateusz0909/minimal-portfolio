@@ -38,6 +38,62 @@
     --radius: 1rem;
     /* Sticky header height used for anchor scroll offset */
     --header-h: 64px;
+
+    /* Semantic tokens */
+    --page: #FAFAF8;
+    --surface: #F5F5F5;
+    --surface-alt: #F9F9F6;
+    --tag: #EFEDE8;
+    --badge-bg: #1F1F1F;
+    --badge-text: #FAFAF8;
+    --heading: #252525;
+    --body: #333333;
+    --body-muted: #666666;
+    --body-subtle: #999999;
+    --edge: #E0E0DC;
+    --edge-light: #EAEAE7;
+    --edge-hover: #D9D9D3;
+    --divider: #333333;
+    --footer-border: #000000;
+  }
+
+  .dark {
+    --background: 240 5% 11%;
+    --foreground: 40 5% 90%;
+    --card: 240 4% 15%;
+    --card-foreground: 40 5% 90%;
+    --popover: 240 5% 13%;
+    --popover-foreground: 40 5% 90%;
+    --primary: 40 5% 90%;
+    --primary-foreground: 240 5% 11%;
+    --secondary: 40 5% 80%;
+    --secondary-foreground: 240 5% 11%;
+    --muted: 240 4% 18%;
+    --muted-foreground: 40 3% 65%;
+    --accent: 240 4% 18%;
+    --accent-foreground: 40 5% 90%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 40 5% 90%;
+    --border: 240 4% 22%;
+    --input: 240 4% 20%;
+    --ring: 40 5% 80%;
+
+    /* Semantic tokens — dark */
+    --page: #1C1C20;
+    --surface: #26262B;
+    --surface-alt: #222226;
+    --tag: #303035;
+    --badge-bg: #303035;
+    --badge-text: #D8D8D4;
+    --heading: #E6E6E2;
+    --body: #B0B0AA;
+    --body-muted: #7A7A75;
+    --body-subtle: #555550;
+    --edge: #35353A;
+    --edge-light: #2C2C31;
+    --edge-hover: #45454A;
+    --divider: #45454A;
+    --footer-border: #45454A;
   }
 }
 
@@ -47,8 +103,10 @@
   }
 
   body {
-    @apply bg-[#FAFAF8] text-foreground;
+    background-color: var(--page);
+    color: var(--body);
     font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   html {
@@ -57,6 +115,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
+    color: var(--heading);
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {

@@ -3,8 +3,9 @@ import './globals.css'
 import { ReactNode } from 'react'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
- 
+import { ThemeProvider } from '@/components/ThemeProvider'
 
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
@@ -33,12 +34,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-[#FAFAF8]">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
       <GoogleAnalytics gaId="G-5N6RJJZ7DN" />
-
     </html>
   )
 }

@@ -27,6 +27,7 @@ export type Project = {
     bullets?: string[]
   }[]
   links?: { label: string; href: string; external?: boolean }[]
+  video?: string
   logo: StaticImageData
 }
 
@@ -195,6 +196,7 @@ export const projects: Project[] = [
         external: true,
       },
     ],
+    video: '/luma-video.mp4',
     logo: lumaImg,
   },
   {
