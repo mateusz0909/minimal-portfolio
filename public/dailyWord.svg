@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Minimal thin cross -->
+  <rect x="14.5" y="4" width="3" height="24" rx="0.5" fill="#c5a065"/>
+  <rect x="8" y="11" width="16" height="3" rx="0.5" fill="#c5a065"/>
+</svg>

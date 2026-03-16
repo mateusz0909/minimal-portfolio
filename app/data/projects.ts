@@ -5,7 +5,14 @@ import feelingJournalImg from '@/public/feelingJournal.jpeg'
 import lemmiImg from '@/public/lemmi.png'
 import lumaImg from '@/public/luma.png'
 
-export type ProjectSlug = 'dopoki-zycie-trwa' | 'lemmi-studio' | 'luma-breathwork' | 'feeling-journal' | 'calm-now'
+export type ProjectSlug =
+  | 'dopoki-zycie-trwa'
+  | 'daily-word'
+  | 'aura-season'
+  | 'lemmi-studio'
+  | 'luma-breathwork'
+  | 'feeling-journal'
+  | 'calm-now'
 
 export type ProjectRoute = `/projects/${ProjectSlug}`
 
@@ -28,7 +35,7 @@ export type Project = {
   }[]
   links?: { label: string; href: string; external?: boolean }[]
   video?: string
-  logo: StaticImageData
+  logo: StaticImageData | string
 }
 
 export const projects: Project[] = [
@@ -91,6 +98,118 @@ export const projects: Project[] = [
     logo: dztImg,
   },
   {
+    slug: 'daily-word',
+    title: 'Daily Word',
+    subtitle: 'Polish daily readings product powered by scraping, AI, and content automation',
+    timeline: '2026 · live web product',
+    status: {
+      label: 'Live personal project',
+      color: '#65D898',
+    },
+    description:
+      'A Polish daily liturgy experience that turns scattered readings, video commentary, reflection text, and AI-generated visuals into one calm daily ritual. Built end-to-end with scraping, caching, AI summarisation, newsletter delivery, and resilient fallback logic.',
+    technologies: ['Next.js 16', 'React 19', 'Supabase', 'Gemini API', 'Groq', 'Cheerio', 'Resend', 'Vercel Cron'],
+    metrics: [
+      { label: 'Delivery model', value: 'Daily cron + on-demand backfill' },
+      { label: 'AI pipeline', value: 'Transcript, video, and gospel-text fallbacks' },
+      { label: 'Content flow', value: 'Scrape, summarise, cache, illustrate, send' },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        body: 'Daily Word was built to make a fragmented content journey feel effortless. Instead of forcing readers to jump between websites, YouTube, and newsletters, the product assembles the day\'s Catholic readings, commentary, reflection, AI summary, and illustration into one focused destination in Polish.',
+      },
+      {
+        heading: 'Key Highlights',
+        bullets: [
+          'Daily content pipeline: readings and reflections are scraped from external sources, YouTube commentary is matched by date, and the full page is assembled automatically.',
+          'AI where it matters: summaries, commentary timestamps, hero copy, and gospel illustrations are generated with a multi-step fallback strategy instead of a single brittle prompt.',
+          'Built for reliability: cache hits still trigger missing-field backfills, so the experience improves even when upstream content appears late.',
+          'Distribution included: a daily newsletter is sent only when the right content is ready, using an idempotent send log to avoid duplicates.',
+        ],
+      },
+      {
+        heading: 'Technical Notes',
+        bullets: [
+          'Next.js App Router with async server components, SSR, and route-level revalidation for both today\'s page and recent history.',
+          'Supabase used as the content cache, subscriber store, send log, and image storage layer.',
+          'Summary generation cascades through transcript mode, Gemini video mode, and gospel-text fallback, with deterministic transcript parsing for commentary timestamps.',
+          'Vercel Cron pre-fills the cache every morning, but page visits can also safely complete any missing parts of the pipeline.',
+        ],
+      },
+      {
+        heading: 'Results',
+        bullets: [
+          'Turned a manual daily routine into a repeatable digital product with automation across content ingestion, AI enrichment, and delivery.',
+          'Created a full-stack content system that stays useful even when upstream sources are incomplete or late.',
+          'Extended the product beyond text by adding AI-generated visuals and newsletter distribution without breaking the calm reading experience.',
+        ],
+      },
+    ],
+    links: [
+      { label: 'Visit slowo.dopokizycietrwa.pl', href: 'https://slowo.dopokizycietrwa.pl/', external: true },
+    ],
+    logo: '/dailyWord.svg',
+  },
+  {
+    slug: 'aura-season',
+    title: 'AuraSeason',
+    subtitle: 'Native iOS utility that makes the passage of time tangible across widgets and live surfaces',
+    timeline: '2026 · live on App Store',
+    status: {
+      label: 'Live on App Store',
+      color: '#65D898',
+    },
+    description:
+      'A time-progress utility for iPhone that helps people see the current season, year, month, day, and personal milestones at a glance. Built as a polished native iOS product with widgets, Live Activities, custom events, and a simple monetisation model.',
+    technologies: ['SwiftUI', 'SwiftData', 'WidgetKit', 'ActivityKit', 'RevenueCat', 'App Intents', 'Core Location'],
+    metrics: [
+      { label: 'Product surfaces', value: 'Widgets, Live Activities, and in-app dashboard' },
+      { label: 'Monetisation', value: 'Free tier + one-time Pro unlock' },
+      { label: 'Platform', value: 'Native iPhone utility app' },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        body: 'AuraSeason rethinks time tracking as a consumer product, not a calendar. The app turns invisible progress into something visual and ambient, showing how far you are through a season, year, month, day, or custom event with a premium iOS-native feel.',
+      },
+      {
+        heading: 'Key Highlights',
+        bullets: [
+          'Ambient utility product: users can check time progress through widgets, Live Activities, and a dashboard instead of actively opening a productivity app.',
+          'Custom events and milestones: vacations, birthdays, and personal deadlines can be tracked alongside seasonal progress.',
+          'Clear business model: the free tier covers the seasonal experience, while Pro unlocks deeper tracking and customisation with a one-time purchase.',
+          'Consistent visual system: the app adapts its presentation to the current season and keeps the product feeling intentional across every surface.',
+        ],
+      },
+      {
+        heading: 'Technical Notes',
+        bullets: [
+          'Built in SwiftUI with a modular architecture spanning dashboard views, widget extensions, Live Activities, settings, paywall, and event management.',
+          'WidgetKit and ActivityKit power persistent time-progress surfaces outside the main app, including lock-screen and home-screen experiences.',
+          'SwiftData stores custom events locally, while RevenueCat manages the Pro entitlement layer.',
+          'Astronomical and daylight calculations add depth to the product without turning it into a data-heavy utility.',
+        ],
+      },
+      {
+        heading: 'Results',
+        bullets: [
+          'Shipped a differentiated iOS utility with a clearer brand and stronger product positioning than a typical side-project timer app.',
+          'Combined native Apple platform features with monetisation and visual polish in a way that supports long-term iteration.',
+          'Created a product that says as much about taste and framing as it does about implementation.',
+        ],
+      },
+    ],
+    links: [
+      {
+        label: 'View on App Store',
+        href: 'https://apps.apple.com/us/app/auraseason-time-progress/id6759496828',
+        external: true,
+      },
+    ],
+    logo: '/auraSeason.png',
+  },
+  {
     slug: 'lemmi-studio',
     title: 'Lemmi Studio',
     subtitle: 'AI-powered marketing kit for fast-moving app teams',
@@ -145,47 +264,47 @@ export const projects: Project[] = [
   {
     slug: 'luma-breathwork',
     title: 'Luma Breathwork',
-    subtitle: 'Guided Wim Hof-style breathing with a premium feel',
-    timeline: 'September 2024',
+    subtitle: 'Guided breathwork app for iPhone and Apple Watch',
+    timeline: '2024 – now',
     status: {
       label: 'Live on App Store',
       color: '#65D898',
     },
     description:
-      'A breathwork companion with expert-led sessions, rich visuals, and automated marketing content. Achieved 13.3% conversion and a 5-star rating.',
-    technologies: ['Swift', 'SwiftUI', 'StoreKit 2', 'CloudKit', 'Adobe Firefly API'],
+      'A breathwork product built around ritual-like guided sessions, Apple Watch support, Health integrations, and post-launch iteration. Reached a 13.3% App Store conversion rate and keeps evolving through regular feature updates.',
+    technologies: ['Swift', 'SwiftUI', 'watchOS', 'HealthKit', 'WatchConnectivity', 'SwiftData', 'Swift Charts', 'WhatsNewKit'],
     metrics: [
       { label: 'Conversion rate', value: '13.3%' },
-      { label: 'App Store rating', value: '5.0★' },
-      { label: 'Status', value: 'Live product' },
+      { label: 'Platforms', value: 'iPhone + Apple Watch' },
+      { label: 'Status', value: 'Live product with ongoing updates' },
     ],
     sections: [
       {
         heading: 'Overview',
-        body: 'Designed a ritual-like breathing experience with tactile feedback, layered audio, and scenario-based programs. Automated marketing creative through Adobe Firefly to keep campaigns fresh.',
+        body: 'Luma was designed as a more immersive breathwork experience than the typical timer-based wellness app. The product combines guided session structure, ambient audio, tactile cues, and a calm visual system, then extends the experience through Apple Watch mirroring, heart-rate visibility, and deeper progress tracking.',
       },
       {
         heading: 'What stands out',
         bullets: [
-          'Structured programmes tailored to user goals (focus, recovery, evening wind-down).',
-          'AI-generated marketing visuals and copy to maintain engagement between updates.',
-          'Progress tracking with meaningful streaks and habit nudges.',
+          'Breathing sessions are structured as a full ritual, not just an inhale-exhale loop, with dedicated phases for breathing, retention, recovery, meditation, and session end.',
+          'Recent updates expanded the product beyond the phone with Apple Watch session support, widget surfaces, stronger haptics, and clearer guidance controls.',
+          'Users can review progress through charts, streaks, and session history instead of relying only on motivation and memory.',
         ],
       },
       {
         heading: 'Technical Notes',
         bullets: [
-          'SwiftUI interface tuned for smooth breathing animations and haptic timing.',
-          'StoreKit 2 subscriptions with finely tuned paywall copy and trials.',
-          'CloudKit-backed analytics to understand retention and cohort behaviour.',
+          'SwiftUI app with a paired watchOS experience, using WatchConnectivity and HealthKit workout mirroring to keep phone and watch in sync during sessions.',
+          'HealthKit integration supports mindful-session syncing and heart-rate aware experiences, while SwiftData stores settings, sessions, and streak-related progress.',
+          'Swift Charts power the stats layer, and WhatsNewKit is used to communicate product updates inside the app after each release.',
         ],
       },
       {
         heading: 'Impact',
         bullets: [
-          'Outperformed typical meditation-app conversions by 4–10×.',
-          'Maintained a perfect star rating thanks to continuous UX refinements.',
-          'Automated campaign creation freed up time for product iteration.',
+          'Converted at 13.3%, well above what I expected for an indie wellness app.',
+          'Evolved from a launchable breathwork product into a more mature ecosystem with watch support, richer stats, and more polished session guidance.',
+          'Shows not just launch speed, but the ability to keep improving a shipped product through focused updates.',
         ],
       },
     ],

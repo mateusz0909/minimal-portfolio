@@ -5,7 +5,9 @@ import type { Metadata } from 'next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { projectRoute } from '@/app/data/projects'
 import { CopyButton } from '@/components/CopyButton'
+import auraSeasonImg from '@/public/auraSeason.png'
 import calmNowImg from '@/public/calmNow.png'
+import dailyWordImg from '@/public/dailyWord.svg'
 import dztImg from '@/public/dzt-icon.png'
 import feelingJournalImg from '@/public/feelingJournal.jpeg'
 import lemmiImg from '@/public/lemmi.png'
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <main>
       <Script id="ld-json-person" type="application/ld+json">
@@ -46,24 +50,31 @@ export default function Page() {
             <br />based in Warsaw, Poland.
           </h1>
 
-          <div className="text-[16px] leading-7 text-[var(--body)] space-y-8">
+          <div className="text-[16px] leading-7 text-[var(--body)] space-y-6">
             <p>
               By day Product Owner at Assembly Global.
               <br />By night I make small, AI-powered tools and apps.
-              <br />Solo, during nights and weekends.
+              <br />Bridging the gap between product strategy and rapid engineering.
             </p>
             <p>
-              In the past year, I&apos;ve released a few iOS apps and one full-stack SaaS project.&nbsp;
-              <span className="underline">Luma Breathwork</span> reached a 13.3% App Store conversion rate — much higher than I expected.
-              And <span className="underline">Lemmi Studio</span> is now live and evolving.
+              In the past year, I&apos;ve shipped native iOS apps, a full-stack SaaS product, and AI-powered publishing tools.&nbsp;
+              <span className="underline">Luma Breathwork</span> reached a 13.3% App Store conversion rate and keeps evolving, <span className="underline">AuraSeason</span> is live on the App Store,
+              and <span className="underline">Daily Word</span> turns a daily content ritual into a full product pipeline.
             </p>
+            <div className="flex items-center gap-3 mt-4 text-[var(--heading)] font-semibold border border-[var(--edge)] bg-[var(--surface)] px-4 py-2 rounded-full w-fit">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
+              Currently open to new projects & roles
+            </div>
           </div>
 
           <Link
             href={{ hash: 'contact' }}
-            className="inline-flex items-center gap-2 text-[16px] leading-7 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
+            className="inline-flex items-center gap-2 text-[16px] leading-7 text-[var(--body)] font-medium underline decoration-2 underline-offset-4 hover:opacity-70 mt-2"
           >
-            Get in touch
+            Let&apos;s build something together
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
@@ -74,6 +85,15 @@ export default function Page() {
         <div className="flex flex-col gap-4">
           {[
             {
+              title: 'AuraSeason',
+              year: '2026',
+              description:
+                'A native iOS utility that visualises the progress of seasons, years, months, days, and personal milestones across widgets and Live Activities.',
+              route: projectRoute('aura-season'),
+              tech: 'Tech: SwiftUI, SwiftData, WidgetKit, ActivityKit, RevenueCat, App Intents',
+              logo: auraSeasonImg,
+            },
+            {
               title: 'Dopóki Życie Trwa',
               year: '2025',
               description:
@@ -81,6 +101,24 @@ export default function Page() {
               route: projectRoute('dopoki-zycie-trwa'),
               tech: 'Tech: Next.js 16, React 19, Sanity CMS, Three.js / R3F, GSAP, Tailwind CSS 4',
               logo: dztImg,
+            },
+            {
+              title: 'Luma Breathwork',
+              year: '2024–26',
+              description:
+                'A breathwork app for iPhone and Apple Watch, expanded with watch support, Health integrations, richer stats, stronger haptics, and ongoing product updates.',
+              route: projectRoute('luma-breathwork'),
+              tech: 'Tech: SwiftUI, watchOS, HealthKit, WatchConnectivity, SwiftData, Swift Charts',
+              logo: lumaImg,
+            },
+            {
+              title: 'Daily Word',
+              year: '2026',
+              description:
+                'A Polish daily readings product combining scraping, AI summaries, generated visuals, caching, and newsletter delivery into one calm daily experience.',
+              route: projectRoute('daily-word'),
+              tech: 'Tech: Next.js 16, React 19, Supabase, Gemini API, Groq, Cheerio, Resend',
+              logo: dailyWordImg,
             },
             {
               title: 'Lemmi Studio',
@@ -108,15 +146,6 @@ export default function Page() {
               route: projectRoute('calm-now'),
               tech: 'Tech: SwiftUI, SwiftData, CloudKit, StoreKit',
               logo: calmNowImg,
-            },
-            {
-              title: 'Luma Breathwork',
-              year: '2024',
-              description:
-                'A breathwork app that guides users through Wim Hof style sessions. Reached a 13.3% App Store conversion rate and holds a 4.9-star rating.',
-              route: projectRoute('luma-breathwork'),
-              tech: 'Tech: Swift, SwiftUI, StoreKit',
-              logo: lumaImg,
             },
           ].map((project) => (
             <article
@@ -154,17 +183,44 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="reviews" className="py-8 scroll-mt-[var(--header-h)]">
+        <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-8">What others say</h2>
+        <div className="flex flex-col gap-4">
+          <article className="bg-[var(--surface)] rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[14px_14px_30px_-30px_rgba(0,0,0,0.45)]">
+            <div className="flex items-center gap-1 text-yellow-500">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
+                </svg>
+              ))}
+            </div>
+            <p className="text-[16px] leading-7 text-[var(--body)] italic relative z-10">
+              &quot;Incredible app. Simple, clean, and gets straight to the point. The Apple Watch integration is flawless and it actually helps me calm down during busy workdays. Highly recommend!&quot;
+            </p>
+            <div className="flex flex-col relative z-10">
+              <span className="font-sans text-[16px] font-bold text-[var(--heading)]">App Store Review</span>
+              <span className="text-[14px] text-[var(--body)] opacity-80">Luma Breathwork user</span>
+            </div>
+            <div className="absolute -right-4 -bottom-4 opacity-[0.03] pointer-events-none">
+              <Image src={lumaImg} alt="Luma background" width={160} height={160} />
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="process" className="py-8 scroll-mt-[var(--header-h)]">
         <h2 className="font-sans text-[32px] leading-8 font-bold text-[var(--heading)] tracking-[-0.5px] mb-4">My Process</h2>
         <div className="mt-2 rounded-none">
-          <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)]">I keep things simple and fast:</div>
+          <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)]">
+            I don&apos;t just write code – I focus on solving user problems and delivering business value fast:
+          </div>
           <div className="divide-y divide-[var(--divider)]">
-            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">1. Spot a real problem (often my own)</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">2. Sketch a &quot;good enough&quot; solution</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">3. Build quickly with help from AI tools like Cursor</div>
-            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">4. Ship, learn, iterate, repeat</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">1. Spot a real problem with measurable impact</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">2. Design a lean, &quot;good enough&quot; MVP</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">3. Build rapidly leveraging AI and a modern stack</div>
+            <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)] pl-8">4. Ship early, gather data, and iterate</div>
             <div className="py-4 font-mono text-[16px] leading-7 text-[var(--body)]">
-              It&apos;s not about perfect launches — it&apos;s about learning, improving, and having fun with the process
+              Bridging the gap between a Product Owner&apos;s product strategy and an engineer&apos;s execution.
             </div>
           </div>
         </div>
@@ -214,11 +270,24 @@ export default function Page() {
               <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
             </a>
           </div>
+
+          <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
+            <span className="text-[16px] font-bold text-[var(--body)] whitespace-nowrap">LinkedIn:</span>
+            <a
+              href="https://www.linkedin.com/in/mateusz-byrtus-256021156"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
+            >
+              <span className="min-w-0 break-words">linkedin.com/in/mateusz-byrtus-256021156</span>
+              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+            </a>
+          </div>
         </div>
       </section>
 
       <div className="py-8 border-t border-[var(--footer-border)] mt-8">
-        <p className="text-center text-[16px] leading-7 text-[var(--heading)]">© 2025 · Mateusz Byrtus · Warsaw, Poland</p>
+        <p className="text-center text-[16px] leading-7 text-[var(--heading)]">© {currentYear} · Mateusz Byrtus · Warsaw, Poland</p>
       </div>
     </main>
   )

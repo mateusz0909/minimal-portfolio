@@ -58,8 +58,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <Image
               src={project.logo}
               alt={`${project.title} logo`}
-              width={project.logo.width}
-              height={project.logo.height}
+              width={56}
+              height={56}
               className="h-14 w-14 rounded-lg border border-[var(--edge)] object-contain"
               priority
             />
