@@ -37,10 +37,13 @@ export default function Page() {
       </Script>
 
       <section id="home" className="flex flex-col gap-8 mb-8 scroll-mt-[var(--header-h)]">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/306f1cd38534d3a4ec272aabbae0549b93cbbb49?width=350"
+        <Image
+          src="/profile_photo.png"
           alt="Profile"
+          width={175}
+          height={175}
           className="w-[175px] h-[175px] rounded-full object-cover"
+          priority
         />
 
         <div className="flex flex-col gap-8">
