@@ -1,20 +1,26 @@
-# Mateusz Portfolio (Next.js)
+# Minimal Portfolio
 
-This is a Next.js 14 App Router migration of the portfolio for better SEO (SSG), metadata, and social previews. Tailwind and your existing visual styles are preserved.
+> **Status:** Active portfolio site
 
-## Scripts
+A minimal portfolio built in Next.js to present projects clearly, keep the visual system restrained, and improve SEO, performance, and case-study storytelling.
 
-- dev: start local dev server
-- build: production build
-- start: run production server
-- lint: Next.js ESLint
-- typecheck: TypeScript validation
+## What This Repo Shows
 
-## Environment
+- Shows product thinking, not just isolated implementation details.
+- Combines UX, positioning, and technical execution into a portfolio-ready build.
+- Useful for understanding how I frame and ship end-to-end software ideas.
 
-Optionally set `NEXT_PUBLIC_SITE_URL` for correct canonical, sitemap, and robots generation.
+## Tech
+
+Next.js, React, TypeScript, Tailwind CSS
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
 
 ## Notes
 
-- Pages are SSG by default. Add `export const revalidate = 60` to use ISR on pages that change.
-- API route example at `/api/ping`.
+This repository is part of the stronger, product-shaped side of my portfolio.
