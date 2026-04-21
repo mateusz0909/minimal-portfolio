@@ -6,6 +6,7 @@ import lemmiImg from '@/public/lemmi.png'
 import lumaImg from '@/public/luma.png'
 
 export type ProjectSlug =
+  | 'wake-the-book'
   | 'dopoki-zycie-trwa'
   | 'daily-word'
   | 'aura-season'
@@ -39,6 +40,60 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'wake-the-book',
+    title: 'WakeTheBook',
+    subtitle: 'Local-first audiobook studio for EPUB and PDF files',
+    timeline: '2026 · open-source personal project',
+    status: {
+      label: 'Open-source personal project',
+      color: '#65D898',
+    },
+    description:
+      'A local-first full-stack tool that turns EPUB and PDF books into narrated audiobooks with chapter review, voice profiles, and resumable rendering. Built to show product thinking, AI workflow design, and practical TTS engineering without relying on cloud APIs.',
+    technologies: ['FastAPI', 'React 19', 'TypeScript', 'SQLite', 'Tailwind CSS 4', 'XTTS v2', 'VoxCPM2', 'PyMuPDF'],
+    metrics: [
+      { label: 'Rendering model', value: 'Local-first, no cloud audio generation' },
+      { label: 'Workflow', value: '5-step import → extract → review → render' },
+      { label: 'Voice stack', value: 'XTTS v2 + VoxCPM2' },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        body: 'WakeTheBook was built as a local audiobook production tool, not just a file converter. It gives users one guided flow to import a book, inspect extracted chapters, adjust the structure, choose a voice, and render final audio without sending source files to external services.',
+      },
+      {
+        heading: 'Key Highlights',
+        bullets: [
+          'Supports EPUB and PDF import with extraction, chapter detection, and cleanup before audio rendering.',
+          'Lets the user review, edit, split, merge, or skip chapters before committing to the final render.',
+          'Uses local voice workflows with XTTS voice cloning and VoxCPM2 support instead of a cloud TTS dependency.',
+          'Handles rendering as resumable chapter jobs, so failures do not force a full restart.',
+        ],
+      },
+      {
+        heading: 'Technical Notes',
+        bullets: [
+          'FastAPI backend orchestrates ingest, extraction, analysis, voice handling, render jobs, and filesystem-backed project storage.',
+          'React + TypeScript frontend wraps the pipeline in a 5-step wizard and output view for non-technical use.',
+          'SQLite stores project state while generated files live under per-project directories for easy inspection and recovery.',
+          'The app keeps the whole processing loop local, including voice previews, chapter audio, manifests, and logs.',
+        ],
+      },
+      {
+        heading: 'Results',
+        bullets: [
+          'Shows end-to-end product thinking: file ingest, AI-assisted review, local inference, and UX around long-running jobs.',
+          'Demonstrates a practical AI product that is useful on its own and publishable as an open-source portfolio piece.',
+          'Positions the work as both a user-facing tool and a technically credible local AI pipeline.',
+        ],
+      },
+    ],
+    links: [
+      { label: 'View on GitHub', href: 'https://github.com/mateusz0909/WakeTheBook', external: true },
+    ],
+    logo: '/wakethebook.svg',
+  },
   {
     slug: 'dopoki-zycie-trwa',
     title: 'Dopóki Życie Trwa',

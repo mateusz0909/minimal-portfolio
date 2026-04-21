@@ -85,6 +85,15 @@ export default function Page() {
         <div className="flex flex-col gap-4">
           {[
             {
+              title: 'WakeTheBook',
+              year: '2026',
+              description:
+                'A local-first tool that turns EPUB and PDF files into narrated audiobooks with chapter review, voice profiles, and resumable rendering.',
+              route: projectRoute('wake-the-book'),
+              tech: 'Tech: FastAPI, React 19, TypeScript, SQLite, XTTS v2, VoxCPM2',
+              logo: '/wakethebook.svg',
+            },
+            {
               title: 'AuraSeason',
               year: '2026',
               description:
@@ -159,7 +168,7 @@ export default function Page() {
                     alt={`${project.title} icon`}
                     width={40}
                     height={40}
-                    className="h-10 w-10 rounded-lg border border-[var(--edge)] object-contain"
+                    className="h-10 w-10 rounded-lg border border-[var(--edge)] bg-white object-contain"
                   />
                   <h3 className="font-sans text-2xl font-bold text-[var(--heading)]">{project.title}</h3>
                 </div>
