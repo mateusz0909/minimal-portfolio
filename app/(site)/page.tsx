@@ -31,7 +31,7 @@ export default function Page() {
           jobTitle: 'Product Builder',
           address: { '@type': 'PostalAddress', addressLocality: 'Warsaw', addressCountry: 'PL' },
           url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-          sameAs: ['https://x.com/mateusz_b9'],
+          sameAs: ['https://x.com/mateusz_b9', 'https://github.com/mateusz0909'],
           email: 'mailto:mateusz.byrtus@icloud.com',
         })}
       </Script>
@@ -289,6 +289,19 @@ export default function Page() {
               className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
             >
               <span className="min-w-0 break-words">linkedin.com/in/mateusz-byrtus-256021156</span>
+              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+            </a>
+          </div>
+
+          <div className="md:grid md:grid-cols-[88px_1fr] md:items-baseline md:gap-x-4">
+            <span className="text-[16px] font-bold text-[var(--body)] whitespace-nowrap">GitHub:</span>
+            <a
+              href="https://github.com/mateusz0909"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 md:mt-0 inline-flex items-center gap-2 text-[16px] leading-6 text-[var(--body)] underline decoration-2 underline-offset-4 hover:opacity-70"
+            >
+              <span className="min-w-0 break-words">github.com/mateusz0909</span>
               <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
             </a>
           </div>
