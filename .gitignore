@@ -22,3 +22,8 @@ coverage/
 
 # OS
 .DS_Store
+
+docs/
+
+# Claude Code local config
+.claude/

@@ -1,0 +1,26 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#0B0B0B"/>
+  <rect x="44" y="44" width="1512" height="912" rx="40" fill="#0F1010" stroke="#232323"/>
+  <rect x="108" y="108" width="1384" height="784" rx="32" fill="#111212" stroke="#1D2420"/>
+  <circle cx="202" cy="194" r="10" fill="#425647"/>
+  <rect x="232" y="182" width="164" height="24" rx="12" fill="#161916"/>
+  <text x="256" y="199" fill="#D6D3D1" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="2.4">MULTI-AGENT PRODUCT OPS</text>
+  <text x="176" y="306" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="84" font-weight="600">Brain+</text>
+  <text x="176" y="364" fill="#A8A29E" font-family="Inter, Arial, sans-serif" font-size="28">Jira, RAG, research, and project memory inside one operating surface.</text>
+  <rect x="178" y="458" width="264" height="120" rx="28" fill="#141414" stroke="#2D3530"/>
+  <text x="214" y="504" fill="#6B7280" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="2.4">ROUTER</text>
+  <text x="214" y="548" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Intent</text>
+  <rect x="510" y="458" width="264" height="120" rx="28" fill="#141414" stroke="#2D3530"/>
+  <text x="546" y="504" fill="#6B7280" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="2.4">JIRA AGENT</text>
+  <text x="546" y="548" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Execution</text>
+  <rect x="842" y="458" width="264" height="120" rx="28" fill="#141414" stroke="#2D3530"/>
+  <text x="878" y="504" fill="#6B7280" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="2.4">RAG</text>
+  <text x="878" y="548" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Grounding</text>
+  <rect x="1174" y="458" width="264" height="120" rx="28" fill="#141414" stroke="#2D3530"/>
+  <text x="1210" y="504" fill="#6B7280" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="2.4">RESEARCH</text>
+  <text x="1210" y="548" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Signals</text>
+  <path d="M310 620C380 684 452 716 540 716C648 716 684 620 792 620C900 620 932 716 1040 716C1128 716 1202 684 1308 620" stroke="#425647" stroke-width="10" stroke-linecap="round"/>
+  <rect x="264" y="692" width="1088" height="120" rx="30" fill="#121212" stroke="#262626"/>
+  <text x="316" y="742" fill="#F5F5F4" font-family="Space Grotesk, Arial, sans-serif" font-size="40" font-weight="600">Project memory + browser capture + grounded response synthesis</text>
+  <text x="316" y="784" fill="#A8A29E" font-family="Inter, Arial, sans-serif" font-size="24">Built for actual backlog refinement, issue creation, and research-heavy product work.</text>
+</svg>

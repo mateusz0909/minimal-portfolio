@@ -7,6 +7,7 @@ import lumaImg from '@/public/luma.png'
 
 export type ProjectSlug =
   | 'wake-the-book'
+  | 'brain-plus'
   | 'dopoki-zycie-trwa'
   | 'daily-word'
   | 'aura-season'
@@ -37,6 +38,7 @@ export type Project = {
   links?: { label: string; href: string; external?: boolean }[]
   video?: string
   logo: StaticImageData | string
+  cover?: StaticImageData | string
 }
 
 export const projects: Project[] = [
@@ -50,7 +52,7 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'A local-first full-stack tool that turns EPUB and PDF books into narrated audiobooks with chapter review, voice profiles, and resumable rendering. Built to show product thinking, AI workflow design, and practical TTS engineering without relying on cloud APIs.',
+      'A local-first full-stack tool that turns EPUB and PDF books into narrated audiobooks with chapter review, voice profiles, and resumable rendering. Runs local TTS models so source files and audio generation stay on-device.',
     technologies: ['FastAPI', 'React 19', 'TypeScript', 'SQLite', 'Tailwind CSS 4', 'XTTS v2', 'VoxCPM2', 'PyMuPDF'],
     metrics: [
       { label: 'Rendering model', value: 'Local-first, no cloud audio generation' },
@@ -83,9 +85,9 @@ export const projects: Project[] = [
       {
         heading: 'Results',
         bullets: [
-          'Shows end-to-end product thinking: file ingest, AI-assisted review, local inference, and UX around long-running jobs.',
-          'Demonstrates a practical AI product that is useful on its own and publishable as an open-source portfolio piece.',
-          'Positions the work as both a user-facing tool and a technically credible local AI pipeline.',
+          'Covers file ingest, chapter cleanup, voice selection, local inference, and long-running render jobs in one product flow.',
+          'Runs without cloud audio generation, keeping source files local and reducing operating cost.',
+          'Shows ownership across product flow, backend orchestration, frontend job UX, and local storage design.',
         ],
       },
     ],
@@ -93,6 +95,62 @@ export const projects: Project[] = [
       { label: 'View on GitHub', href: 'https://github.com/mateusz0909/WakeTheBook', external: true },
     ],
     logo: '/wakethebook.svg',
+    cover: '/wakethebook-cover.svg',
+  },
+  {
+    slug: 'brain-plus',
+    title: 'Brain+',
+    subtitle: 'Multi-agent Jira copilot for product operations, research, and grounded execution',
+    timeline: '2026 · active full-stack AI product',
+    status: {
+      label: 'Active AI product',
+      color: '#65D898',
+    },
+    description:
+      'A multi-agent Jira copilot built for real product operations work: backlog refinement, issue creation, document drafting, project memory, RAG over internal docs, live research, and browser-side capture through a Chrome extension.',
+    technologies: ['FastAPI', 'LangGraph', 'React 18', 'TypeScript', 'Chrome Extension MV3', 'Gemini', 'ChromaDB', 'Pydantic'],
+    metrics: [
+      { label: 'Interaction surfaces', value: 'Web app, Chrome extension, and streaming API' },
+      { label: 'Agent roles', value: 'Router, Jira, RAG, Research, Notion, and Responder' },
+      { label: 'Grounding model', value: 'Project memory + local vector retrieval' },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        body: 'Brain+ combines Jira execution, grounded retrieval, live research, and project memory for backlog work, discovery tasks, and document drafting.',
+      },
+      {
+        heading: 'Key Highlights',
+        bullets: [
+          'LangGraph routes work between specialized agents instead of relying on one giant prompt, separating Jira actions, RAG lookup, research, and response synthesis.',
+          'The product ships across multiple surfaces: a React web app for deep work, a Chrome extension overlay for in-context capture, and a streaming backend for longer-running flows.',
+          'Project memory and a local vector store ground answers in prior context and uploaded documents.',
+          'Browser-side capture makes the assistant usable inside real workflows by pulling page context, images, and voice input directly from the current tab.',
+        ],
+      },
+      {
+        heading: 'Technical Notes',
+        bullets: [
+          'FastAPI exposes the streaming API layer while LangGraph coordinates routing, tool execution, and agent-to-agent handoffs.',
+          'React 18 + TypeScript power the main product UI, including project-aware chat, markdown rendering, document handling, and settings flows.',
+          'The Chrome extension uses Manifest V3, Shadow DOM isolation, storage sync/local, and rich capture inputs to stay useful on any page.',
+          'ChromaDB and project memory provide the retrieval layer, while Gemini handles reasoning and search-grounded research workflows.',
+        ],
+      },
+      {
+        heading: 'Results',
+        bullets: [
+          'Combines web app, Chrome extension, and streaming API around one agent graph.',
+          'Separates Jira actions, retrieval, research, and response generation into clear agent roles.',
+          'Shows full-stack AI product work across orchestration, UX, retrieval, and integrations.',
+        ],
+      },
+    ],
+    links: [
+      { label: 'View on GitHub', href: 'https://github.com/mateusz0909/product-brain-plus', external: true },
+    ],
+    logo: '/brain-plus.svg',
+    cover: '/brain-plus-cover.svg',
   },
   {
     slug: 'dopoki-zycie-trwa',
@@ -104,7 +162,7 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'A dark, brutalist editorial platform chronicling a personal journey through carnivore diet, cold exposure, ultra-endurance, and stoic philosophy. Full CMS, WebGL shaders, cinematic scroll animations, and newsletter — built solo in two weeks.',
+      'A brutalist editorial platform for essays on carnivore diet, cold exposure, endurance, and stoic philosophy. Includes CMS, WebGL shaders, scroll animation, newsletter, and SEO, built solo in two weeks.',
     technologies: ['Next.js 16', 'React 19', 'Sanity CMS', 'Three.js / R3F', 'GSAP', 'Tailwind CSS 4', 'Resend', 'Vercel'],
     metrics: [
       { label: 'Build time', value: '2 weeks (solo, nights & weekends)' },
@@ -114,7 +172,7 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'Overview',
-        body: 'Dopóki Życie Trwa ("While Life Lasts") is a monastic noir editorial magazine — a raw, maximalist record of an inner journey through physical discipline and spiritual depth. The site serves as a living archive of articles organized around three pillars: CIAŁO (Body), HART (Grit), and DUCH (Spirit). Built with a custom "monastic noir" visual identity — dark tones, desaturated imagery, cinematic typography, and WebGL-driven hero experience.',
+        body: 'Dopóki Życie Trwa ("While Life Lasts") is an editorial site with articles organized around three pillars: CIAŁO (Body), HART (Grit), and DUCH (Spirit). The build includes a custom dark visual identity, desaturated imagery, cinematic typography, and a WebGL-driven hero.',
       },
       {
         heading: 'Key Highlights',
@@ -140,7 +198,7 @@ export const projects: Project[] = [
       {
         heading: 'Results',
         bullets: [
-          'Full editorial platform delivered in two weeks, solo, with 30+ features and a cohesive dark design system.',
+          'Full editorial platform delivered in two weeks, solo, with 30+ shipped features.',
           'Custom WebGL hero renders at 60fps with smooth pointer-reactive distortion and cinematic scroll dispersal.',
           'Content pipeline from YAML → Sanity import script → Studio → live article with SEO, RSS, and newsletter in a single workflow.',
           'Lighthouse performance optimized: dynamic imports for Three.js, lazy-loaded images, font optimization (Oswald + Montserrat via next/font), and ISR caching.',
@@ -162,7 +220,7 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'A Polish daily liturgy experience that turns scattered readings, video commentary, reflection text, and AI-generated visuals into one calm daily ritual. Built end-to-end with scraping, caching, AI summarisation, newsletter delivery, and resilient fallback logic.',
+      'A Polish daily liturgy site that assembles readings, video commentary, reflections, AI summaries, AI-generated visuals, and newsletter delivery with caching and fallback logic.',
     technologies: ['Next.js 16', 'React 19', 'Supabase', 'Gemini API', 'Groq', 'Cheerio', 'Resend', 'Vercel Cron'],
     metrics: [
       { label: 'Delivery model', value: 'Daily cron + on-demand backfill' },
@@ -172,14 +230,14 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'Overview',
-        body: 'Daily Word was built to make a fragmented content journey feel effortless. Instead of forcing readers to jump between websites, YouTube, and newsletters, the product assembles the day\'s Catholic readings, commentary, reflection, AI summary, and illustration into one focused destination in Polish.',
+        body: 'Daily Word assembles the day\'s Catholic readings, commentary, reflection, AI summary, and illustration into one Polish page instead of spreading the routine across websites, YouTube, and email.',
       },
       {
         heading: 'Key Highlights',
         bullets: [
           'Daily content pipeline: readings and reflections are scraped from external sources, YouTube commentary is matched by date, and the full page is assembled automatically.',
-          'AI where it matters: summaries, commentary timestamps, hero copy, and gospel illustrations are generated with a multi-step fallback strategy instead of a single brittle prompt.',
-          'Built for reliability: cache hits still trigger missing-field backfills, so the experience improves even when upstream content appears late.',
+          'AI fallback pipeline: summaries, commentary timestamps, hero copy, and gospel illustrations use transcript, video, and text fallback modes.',
+          'Cache repair: cache hits still trigger missing-field backfills when upstream content appears late.',
           'Distribution included: a daily newsletter is sent only when the right content is ready, using an idempotent send log to avoid duplicates.',
         ],
       },
@@ -197,7 +255,7 @@ export const projects: Project[] = [
         bullets: [
           'Turned a manual daily routine into a repeatable digital product with automation across content ingestion, AI enrichment, and delivery.',
           'Created a full-stack content system that stays useful even when upstream sources are incomplete or late.',
-          'Extended the product beyond text by adding AI-generated visuals and newsletter distribution without breaking the calm reading experience.',
+          'Added AI-generated visuals and newsletter distribution while keeping the reading page focused.',
         ],
       },
     ],
@@ -216,7 +274,7 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'A time-progress utility for iPhone that helps people see the current season, year, month, day, and personal milestones at a glance. Built as a polished native iOS product with widgets, Live Activities, custom events, and a simple monetisation model.',
+      'An iPhone time-progress utility for seasons, year, month, day, and custom milestones. Ships widgets, Live Activities, custom events, and a RevenueCat one-time Pro unlock.',
     technologies: ['SwiftUI', 'SwiftData', 'WidgetKit', 'ActivityKit', 'RevenueCat', 'App Intents', 'Core Location'],
     metrics: [
       { label: 'Product surfaces', value: 'Widgets, Live Activities, and in-app dashboard' },
@@ -226,15 +284,15 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'Overview',
-        body: 'AuraSeason rethinks time tracking as a consumer product, not a calendar. The app turns invisible progress into something visual and ambient, showing how far you are through a season, year, month, day, or custom event with a premium iOS-native feel.',
+        body: 'AuraSeason shows progress through a season, year, month, day, or custom event across the app, widgets, and Live Activities.',
       },
       {
         heading: 'Key Highlights',
         bullets: [
           'Ambient utility product: users can check time progress through widgets, Live Activities, and a dashboard instead of actively opening a productivity app.',
           'Custom events and milestones: vacations, birthdays, and personal deadlines can be tracked alongside seasonal progress.',
-          'Clear business model: the free tier covers the seasonal experience, while Pro unlocks deeper tracking and customisation with a one-time purchase.',
-          'Consistent visual system: the app adapts its presentation to the current season and keeps the product feeling intentional across every surface.',
+          'Clear business model: free seasonal tracking plus one-time Pro unlock for deeper tracking and customisation.',
+          'Seasonal visual system: colors and labels adapt to the current season across every surface.',
         ],
       },
       {
@@ -249,9 +307,9 @@ export const projects: Project[] = [
       {
         heading: 'Results',
         bullets: [
-          'Shipped a differentiated iOS utility with a clearer brand and stronger product positioning than a typical side-project timer app.',
-          'Combined native Apple platform features with monetisation and visual polish in a way that supports long-term iteration.',
-          'Created a product that says as much about taste and framing as it does about implementation.',
+          'Shipped a native iOS utility with app, widget, Live Activity, settings, paywall, and event-management surfaces.',
+          'Combined Apple platform features with a one-time purchase model for a small, maintainable product.',
+          'Kept the product scope narrow enough to support ongoing iteration after release.',
         ],
       },
     ],
@@ -263,6 +321,7 @@ export const projects: Project[] = [
       },
     ],
     logo: '/auraSeason.png',
+    cover: '/auraSeason.png',
   },
   {
     slug: 'lemmi-studio',
@@ -274,7 +333,7 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'Transforms raw app screenshots into App Store visuals, landing pages, and copy in minutes. Built solo—auth, billing, AI generation, and editor included.',
+      'Turns raw app screenshots into App Store image sets, landing-page files, and launch copy. Built solo with auth, billing, AI generation, and an editor.',
     technologies: ['Node.js', 'Express', 'React', 'Supabase', 'Stripe', 'Gemini API'],
     metrics: [
       { label: 'Build time', value: '1 month (solo, nights & weekends)' },
@@ -305,7 +364,7 @@ export const projects: Project[] = [
       {
         heading: 'Results',
         bullets: [
-          'Full SaaS delivered in one month with production-ready AI workflows.',
+          'Full SaaS delivered in one month with auth, billing, editor, generation, and export flows.',
           'High-res export pipeline renders ten 1200×2600 images in under eight seconds.',
           'Pricing tiers tailored to indie budgets (Free / $19 / $49) with clear upgrade paths.',
         ],
@@ -315,6 +374,7 @@ export const projects: Project[] = [
       { label: 'Visit lemmi.studio', href: 'https://lemmi.studio', external: true },
     ],
     logo: lemmiImg,
+    cover: lemmiImg,
   },
   {
     slug: 'luma-breathwork',
@@ -336,13 +396,13 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'Overview',
-        body: 'Luma was designed as a more immersive breathwork experience than the typical timer-based wellness app. The product combines guided session structure, ambient audio, tactile cues, and a calm visual system, then extends the experience through Apple Watch mirroring, heart-rate visibility, and deeper progress tracking.',
+        body: 'Luma combines guided session structure, ambient audio, tactile cues, Apple Watch mirroring, heart-rate visibility, and progress tracking.',
       },
       {
-        heading: 'What stands out',
+        heading: 'Highlights',
         bullets: [
           'Breathing sessions are structured as a full ritual, not just an inhale-exhale loop, with dedicated phases for breathing, retention, recovery, meditation, and session end.',
-          'Recent updates expanded the product beyond the phone with Apple Watch session support, widget surfaces, stronger haptics, and clearer guidance controls.',
+          'Recent updates expanded the product beyond the phone with Apple Watch session support, widget surfaces, more precise haptics, and clearer guidance controls.',
           'Users can review progress through charts, streaks, and session history instead of relying only on motivation and memory.',
         ],
       },
@@ -357,9 +417,9 @@ export const projects: Project[] = [
       {
         heading: 'Impact',
         bullets: [
-          'Converted at 13.3%, well above what I expected for an indie wellness app.',
-          'Evolved from a launchable breathwork product into a more mature ecosystem with watch support, richer stats, and more polished session guidance.',
-          'Shows not just launch speed, but the ability to keep improving a shipped product through focused updates.',
+          'Achieved a 13.3% App Store conversion rate, outperforming typical indie wellness app benchmarks.',
+          'Expanded after launch with watch support, richer stats, more precise haptics, and clearer session guidance.',
+          'Shows not just launch speed, but continuous improvement of a shipped product through focused updates.',
         ],
       },
     ],
@@ -372,6 +432,7 @@ export const projects: Project[] = [
     ],
     video: '/luma-video.mp4',
     logo: lumaImg,
+    cover: lumaImg,
   },
   {
     slug: 'feeling-journal',
@@ -398,7 +459,7 @@ export const projects: Project[] = [
         heading: 'Highlights',
         bullets: [
           'CloudKit sync keeps entries in step across devices while staying private.',
-          'Gemini API crafts empathetic weekly recaps and suggestions.',
+          'Gemini API generates weekly recaps and suggestions.',
           'SwiftUI interface keeps logging lightweight so users return daily.',
         ],
       },
@@ -414,8 +475,8 @@ export const projects: Project[] = [
         heading: 'Outcome',
         bullets: [
           'Shipped end-to-end in two weeks from idea to App Store approval.',
-          'AI integration stays on-device where possible to protect entries.',
-          'Set the foundation for cross-platform expansion.',
+          'Protects user entry privacy using secure, anonymized API transit and local preprocessing.',
+          'Left a SwiftUI and SwiftData base that can add iPad or macOS views later.',
         ],
       },
     ],
@@ -427,6 +488,7 @@ export const projects: Project[] = [
       },
     ],
     logo: feelingJournalImg,
+    cover: feelingJournalImg,
   },
   {
     slug: 'calm-now',
@@ -447,13 +509,13 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'Overview',
-        body: 'Calm Now offers focused box-breathing sessions with synced haptics and soothing animations. Designed to help stressed teams reset quickly.',
+        body: 'Calm Now offers focused box-breathing sessions with synced haptics and animation. Built for a fast App Store release and a reusable breathing-session engine.',
       },
       {
         heading: 'Highlights',
         bullets: [
           'Customisable breathing ratios with responsive visuals.',
-          'Immersive haptic feedback aligned to inhale / exhale cues.',
+          'Haptic feedback aligned to inhale / exhale cues.',
           'Session history and gentle reminders to keep the habit alive.',
         ],
       },
@@ -469,7 +531,7 @@ export const projects: Project[] = [
         heading: 'Outcome',
         bullets: [
           'Proved out a fast idea-to-App-Store workflow.',
-          'Positive user feedback for the calm, distraction-free art direction.',
+          'Validated the calm, distraction-free direction in early user feedback.',
           'Reusable breathing engine now powers newer experiments.',
         ],
       },
@@ -482,6 +544,7 @@ export const projects: Project[] = [
       },
     ],
     logo: calmNowImg,
+    cover: calmNowImg,
   },
 ]
 

@@ -1,14 +1,14 @@
-# Minimal Portfolio
+# Mateusz Byrtus Portfolio
 
 > **Status:** Active portfolio site
 
-A minimal portfolio built in Next.js to present projects clearly, keep the visual system restrained, and improve SEO, performance, and case-study storytelling.
+A Next.js portfolio for recruiter review: role, shipped work, project evidence, contact paths, SEO, and performance.
 
 ## What This Repo Shows
 
-- Shows product thinking, not just isolated implementation details.
-- Combines UX, positioning, and technical execution into a portfolio-ready build.
-- Useful for understanding how I frame and ship end-to-end software ideas.
+- AI Product Owner positioning with direct project proof.
+- Case studies covering discovery, execution, and post-launch iteration.
+- Minimal visual system focused on scanning and readability.
 
 ## Tech
 
@@ -23,4 +23,4 @@ npm run dev
 
 ## Notes
 
-This repository is part of the stronger, product-shaped side of my portfolio.
+This repository powers my public portfolio.
