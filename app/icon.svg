@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    .bg { fill: #0c0c0c; }
+    .fg { fill: #e9e7e2; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #f4f1ea; }
+      .fg { fill: #1b1917; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="15" />
+  <text class="fg" x="50%" y="52%"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'Jost', 'Helvetica Neue', Arial, sans-serif"
+        font-size="30" font-weight="500" letter-spacing="-1.5">MB</text>
+</svg>

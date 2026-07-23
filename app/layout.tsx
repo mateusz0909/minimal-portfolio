@@ -31,7 +31,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         className={`${GeistSans.variable} ${jetbrainsMono.variable} ${jost.variable} ${hanken.variable} antialiased`}
       >

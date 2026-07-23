@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 const navItems = [
   { id: 'top', label: 'Home' },
@@ -72,6 +73,7 @@ export function Sidebar({ mode = 'home' }: { mode?: 'home' | 'sub' }) {
           </a>
         ))}
       </div>
+      <ThemeToggle />
       <div className="sidebar-copy">© 2026 Mateusz Byrtus</div>
     </aside>
   )

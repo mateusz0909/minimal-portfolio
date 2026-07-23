@@ -24,7 +24,7 @@ const work: Work[] = [
     desc: 'EPUB and PDF files into narrated audiobooks — chapter review, voice profiles, resumable rendering.',
     backdrop: {
       bd: {
-        backgroundImage: 'radial-gradient(rgba(255,255,255,.13) 1.1px,transparent 1.3px)',
+        backgroundImage: 'radial-gradient(rgb(var(--ink) /.13) 1.1px,transparent 1.3px)',
         backgroundSize: '13px 13px',
       },
       shape: { width: 86, height: 86, borderRadius: '50%' },
@@ -37,8 +37,8 @@ const work: Work[] = [
     category: 'iOS App',
     desc: 'A native iOS utility visualising seasons, years, and personal milestones across widgets and Live Activities.',
     backdrop: {
-      bd: { background: 'repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.12) 0 1px,transparent 1px 15px)' },
-      shape: { width: 14, height: 14, borderRadius: '50%', background: 'rgba(255,255,255,.34)', border: 'none' },
+      bd: { background: 'repeating-radial-gradient(circle at 50% 50%,rgb(var(--ink) /.12) 0 1px,transparent 1px 15px)' },
+      shape: { width: 14, height: 14, borderRadius: '50%', background: 'rgb(var(--ink) /.34)', border: 'none' },
     },
   },
   {
@@ -48,7 +48,7 @@ const work: Work[] = [
     category: 'Editorial',
     desc: 'A dark editorial magazine on discipline and stoicism — WebGL shaders, cinematic scroll, built solo in two weeks.',
     backdrop: {
-      bd: { background: 'repeating-linear-gradient(45deg,rgba(255,255,255,.09) 0 1px,transparent 1px 13px)' },
+      bd: { background: 'repeating-linear-gradient(45deg,rgb(var(--ink) /.09) 0 1px,transparent 1px 13px)' },
       shape: { width: 76, height: 76, transform: 'rotate(45deg)' },
     },
   },
@@ -61,7 +61,7 @@ const work: Work[] = [
     backdrop: {
       bd: {
         backgroundImage:
-          'linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px)',
+          'linear-gradient(rgb(var(--ink) /.09) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--ink) /.09) 1px,transparent 1px)',
         backgroundSize: '17px 17px',
       },
       shape: { width: 90, height: 90, borderRadius: '50%' },
@@ -74,7 +74,7 @@ const work: Work[] = [
     category: 'Web + AI',
     desc: 'Polish daily readings — scraping, AI summaries, generated visuals and newsletter delivery in one calm experience.',
     backdrop: {
-      bd: { background: 'repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 1px,transparent 1px 12px)' },
+      bd: { background: 'repeating-linear-gradient(0deg,rgb(var(--ink) /.09) 0 1px,transparent 1px 12px)' },
       shape: { width: 82, height: 82 },
     },
   },
@@ -87,7 +87,7 @@ const work: Work[] = [
     backdrop: {
       bd: {
         background:
-          'repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 11px),repeating-linear-gradient(-45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 11px)',
+          'repeating-linear-gradient(45deg,rgb(var(--ink) /.07) 0 1px,transparent 1px 11px),repeating-linear-gradient(-45deg,rgb(var(--ink) /.07) 0 1px,transparent 1px 11px)',
       },
       shape: { width: 74, height: 74, transform: 'rotate(45deg)' },
     },
@@ -99,7 +99,7 @@ const work: Work[] = [
     category: 'iOS App',
     desc: 'Emotion tracking for iOS with weekly AI summaries — idea to App Store in one week.',
     backdrop: {
-      bd: { background: 'repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 13px)' },
+      bd: { background: 'repeating-linear-gradient(90deg,rgb(var(--ink) /.09) 0 1px,transparent 1px 13px)' },
       shape: { width: 86, height: 86, borderRadius: '50%' },
     },
   },
@@ -110,8 +110,8 @@ const work: Work[] = [
     category: 'iOS App',
     desc: 'A minimal box-breathing experience built in two weeks to explore focused UI and StoreKit paywalls.',
     backdrop: {
-      bd: { background: 'radial-gradient(circle at 50% 45%,rgba(255,255,255,.10),transparent 62%)' },
-      shape: { width: 96, height: 96, borderRadius: '50%', border: '1px solid rgba(255,255,255,.34)' },
+      bd: { background: 'radial-gradient(circle at 50% 45%,rgb(var(--ink) /.10),transparent 62%)' },
+      shape: { width: 96, height: 96, borderRadius: '50%', border: '1px solid rgb(var(--ink) /.34)' },
     },
   },
   {
@@ -123,7 +123,7 @@ const work: Work[] = [
     backdrop: {
       bd: {
         backgroundImage:
-          'linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)',
+          'linear-gradient(rgb(var(--ink) /.07) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--ink) /.07) 1px,transparent 1px)',
         backgroundSize: '11px 11px',
       },
       shape: { width: 80, height: 80, transform: 'rotate(45deg)' },
