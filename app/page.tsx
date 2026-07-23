@@ -156,6 +156,20 @@ const count = String(work.length).padStart(2, '0')
 export default function Home() {
   return (
     <div className="site">
+      {/* duotone filter for the light-mode portrait — maps grayscale to the paper palette */}
+      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
+        <filter id="duotone-paper" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0 0 0 1 0"
+          />
+          <feComponentTransfer>
+            <feFuncR type="table" tableValues="0.13 0.95" />
+            <feFuncG type="table" tableValues="0.11 0.935" />
+            <feFuncB type="table" tableValues="0.085 0.905" />
+          </feComponentTransfer>
+        </filter>
+      </svg>
       <RevealInit />
       <Sidebar mode="home" />
 
@@ -180,10 +194,6 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <div className="inline-label">
-                <span className="eyebrow">About Me</span>
-                <span className="rule" />
-              </div>
               <p className="prose prose--strong">
                 By day, Product Owner at Assembly Global. By night, I make small, AI-powered tools and apps — bridging
                 product strategy and rapid engineering.
@@ -199,12 +209,8 @@ export default function Home() {
 
         {/* MOTIVATION + photo */}
         <section id="about" className="section">
-          <div className="label-row">
-            <span className="eyebrow">Motivation</span>
-            <span className="rule" />
-          </div>
-          <div className="about-grid">
-            <div data-reveal>
+          <div data-reveal className="about-grid">
+            <div>
               <p className="lead">I&apos;m a builder with a growing focus on where product strategy meets craft.</p>
               <p className="prose">
                 I&apos;ve found that shipping real things — small, focused, and fast — is what teaches me the most. So I
@@ -230,7 +236,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div data-reveal className="portrait">
+            <div className="portrait">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/profile_photo.png" alt="Mateusz Byrtus" />
               <div className="portrait-caption">Mateusz Byrtus — Warsaw</div>
@@ -245,9 +251,9 @@ export default function Home() {
             <span className="rule" />
             <span className="rule-count">{count}</span>
           </div>
-          <div className="work-grid">
+          <div data-reveal className="work-grid">
             {work.map((p) => (
-              <Link key={p.slug} href={`/projects/${p.slug}`} data-reveal className="work-card">
+              <Link key={p.slug} href={`/projects/${p.slug}`} className="work-card">
                 <div className="work-thumb">
                   <div className="bd" style={p.backdrop.bd} />
                   <div className="shape" style={p.backdrop.shape} />
@@ -273,19 +279,15 @@ export default function Home() {
               &ldquo;Incredible app. Simple, clean, and gets straight to the point. The Apple Watch integration is
               flawless and it actually helps me calm down during busy workdays.&rdquo;
             </blockquote>
-            <div className="quote-source">App Store Review — Luma Breathwork User</div>
+            <div className="quote-source">App Store review · Luma Breathwork</div>
           </div>
         </section>
 
         {/* SKILLS */}
         <section id="skills" className="section">
-          <div className="label-row" style={{ marginBottom: 52 }}>
-            <span className="eyebrow">Skills</span>
-            <span className="rule" />
-          </div>
-          <div className="skills-grid">
+          <div data-reveal className="skills-grid">
             {skillGroups.map((group) => (
-              <div key={group.label} data-reveal>
+              <div key={group.label}>
                 <div className="skill-label">{group.label}</div>
                 <div className="chips">
                   {group.items.map((item) => (
@@ -301,10 +303,6 @@ export default function Home() {
 
         {/* CONTACT */}
         <section id="contact" className="section" style={{ paddingTop: 96, paddingBottom: 60 }}>
-          <div className="label-row" style={{ marginBottom: 48 }}>
-            <span className="eyebrow">Contact</span>
-            <span className="rule" />
-          </div>
           <h2 data-reveal className="contact-title">
             Let&apos;s build
             <br />

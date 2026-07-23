@@ -5,23 +5,25 @@
 @layer base {
   :root {
     /* dark (default) */
-    --background: #0c0c0c;
+    --background: #0d0c0b;
     --foreground: #e9e7e2;
-    --card: #0f0f0f;
-    --ink: 255 255 255; /* channels used for hairlines + patterns */
+    --card: #100f0d;
+    --ink: 250 248 244; /* channels used for hairlines + patterns */
     --border: rgb(var(--ink) / 0.09);
     --muted: #94928c;
     --text: #b0aea6;
     --text2: #d6d4cd;
     --accent: #a3a19b;
     --ghost: #2d2c29;
-    --hi: #ffffff;
-    --bar-bg: rgba(12, 12, 12, 0.85);
+    --hi: #faf8f4;
+    --bar-bg: rgba(13, 12, 11, 0.85);
 
     --font-sans: var(--font-geist-sans), sans-serif;
     --font-mono: var(--font-jetbrains-mono), monospace;
     --font-jost: var(--font-jost), 'Jost', sans-serif;
     --font-hanken: var(--font-hanken), 'Hanken Grotesk', system-ui, sans-serif;
+
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   :root[data-theme='light'] {
@@ -60,13 +62,13 @@
     font-family: var(--font-hanken);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
   }
 
   a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.25s ease;
+    transition: color 0.25s var(--ease-out);
   }
 
   ::selection {
@@ -90,7 +92,7 @@
   opacity: 0;
 }
 [data-reveal].in {
-  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: rise 0.9s var(--ease-out) both;
 }
 
 /* ========================================================================
@@ -128,7 +130,7 @@
   display: flex;
   align-items: center;
   color: var(--muted);
-  transition: color 0.4s ease;
+  transition: color 0.4s var(--ease-out);
 }
 .nav-link.is-active {
   color: var(--hi);
@@ -143,7 +145,7 @@
   margin-left: 14px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 0.55s var(--ease-out);
 }
 .nav-link.is-active .navline {
   transform: scaleX(1);
@@ -171,7 +173,7 @@
   font: 400 11px var(--font-jost);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  transition: color 0.3s var(--ease-out);
 }
 .theme-toggle:hover {
   color: var(--hi);
@@ -291,6 +293,7 @@
 .stat-num {
   font: 200 34px var(--font-jost);
   letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
 .stat-label {
   font: 400 12px var(--font-jost);
@@ -309,6 +312,13 @@
   height: auto;
   filter: grayscale(1) contrast(1.04);
   opacity: 0.92;
+  transition: filter 0.4s var(--ease-out);
+}
+/* duotone the photo into the palette (shadows→warm dark, highlights→paper)
+   so the black studio backdrop is made of the page, not dropped onto it */
+:root[data-theme='light'] .portrait img {
+  filter: url(#duotone-paper);
+  opacity: 1;
 }
 .portrait-caption {
   font: 400 12px var(--font-jost);
@@ -328,7 +338,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s var(--ease-out);
 }
 .work-card:hover {
   opacity: 0.72;
@@ -705,6 +715,7 @@
   font: 200 30px / 1.2 var(--font-jost);
   letter-spacing: 0.01em;
   color: var(--foreground);
+  font-variant-numeric: tabular-nums;
 }
 .metric-label {
   font: 400 12px var(--font-jost);
