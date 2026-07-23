@@ -33,7 +33,7 @@ export function VideoPreview({ src }: { src: string }) {
       {/* Thumbnail */}
       <button
         onClick={() => setOpen(true)}
-        className="group relative w-full sm:w-40 aspect-[9/16] sm:aspect-auto shrink-0 sm:self-stretch rounded-xl overflow-hidden border border-[var(--edge)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+        className="group relative aspect-[9/16] w-[220px] max-w-full shrink-0 overflow-hidden rounded-xl border border-[color:rgb(var(--ink)/0.14)] bg-[var(--card)] transition-transform duration-200 hover:-translate-y-0.5"
         aria-label="Play video"
       >
         <video
