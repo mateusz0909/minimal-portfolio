@@ -143,8 +143,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <span className="eyebrow">Demo</span>
             <span className="rule" />
           </div>
-          <div data-reveal style={{ maxWidth: 860 }}>
-            <VideoPreview src={project.video} />
+          <div data-reveal>
+            <VideoPreview src={project.video} slug={project.slug} />
           </div>
         </section>
       )}

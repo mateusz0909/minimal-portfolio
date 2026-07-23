@@ -42,6 +42,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${GeistSans.variable} ${jetbrainsMono.variable} ${jost.variable} ${hanken.variable} antialiased`}
       >
+        {/* duotone filter — maps grayscale to the paper palette for light-mode imagery/video.
+            Lives in the root layout so url(#duotone-paper) resolves on every route. */}
+        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
+          <filter id="duotone-paper" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0 0 0 1 0"
+            />
+            <feComponentTransfer>
+              <feFuncR type="table" tableValues="0.13 0.95" />
+              <feFuncG type="table" tableValues="0.11 0.935" />
+              <feFuncB type="table" tableValues="0.085 0.905" />
+            </feComponentTransfer>
+          </filter>
+        </svg>
         {children}
       </body>
     </html>

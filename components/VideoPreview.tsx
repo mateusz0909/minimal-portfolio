@@ -2,12 +2,19 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Play, X } from 'lucide-react'
+import { getVisual } from '@/lib/projectVisuals'
 
-export function VideoPreview({ src }: { src: string }) {
+export function VideoPreview({ src, slug }: { src: string; slug: string }) {
   const [open, setOpen] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const close = useCallback(() => setOpen(false), [])
+
+  useEffect(() => {
+    if (!window.matchMedia) return
+    setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -30,25 +37,29 @@ export function VideoPreview({ src }: { src: string }) {
 
   return (
     <>
-      {/* Thumbnail */}
-      <button
-        onClick={() => setOpen(true)}
-        className="group relative aspect-[9/16] w-[220px] max-w-full shrink-0 overflow-hidden rounded-xl border border-[color:rgb(var(--ink)/0.14)] bg-[var(--card)] transition-transform duration-200 hover:-translate-y-0.5"
-        aria-label="Play video"
-      >
-        <video
-          src={src}
-          muted
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm">
-            <Play className="h-5 w-5 text-white fill-white ml-0.5" />
-          </div>
-        </div>
-      </button>
+      {/* Stage — the video sits on the same geometric panel language as the rest of the site */}
+      <div className="demo-stage">
+        <div className="demo-bd" style={getVisual(slug).bd} />
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="demo-screen"
+          aria-label="Play video with sound"
+        >
+          <video
+            src={src}
+            muted
+            loop
+            playsInline
+            autoPlay={!reduceMotion}
+            preload={reduceMotion ? 'metadata' : 'auto'}
+          />
+          <span className="demo-play">
+            <Play aria-hidden />
+            Play with sound
+          </span>
+        </button>
+      </div>
 
       {/* Modal */}
       {open && (

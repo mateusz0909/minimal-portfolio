@@ -156,20 +156,6 @@ const count = String(work.length).padStart(2, '0')
 export default function Home() {
   return (
     <div className="site">
-      {/* duotone filter for the light-mode portrait — maps grayscale to the paper palette */}
-      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
-        <filter id="duotone-paper" colorInterpolationFilters="sRGB">
-          <feColorMatrix
-            type="matrix"
-            values="0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0.34 0.34 0.34 0 0  0 0 0 1 0"
-          />
-          <feComponentTransfer>
-            <feFuncR type="table" tableValues="0.13 0.95" />
-            <feFuncG type="table" tableValues="0.11 0.935" />
-            <feFuncB type="table" tableValues="0.085 0.905" />
-          </feComponentTransfer>
-        </filter>
-      </svg>
       <RevealInit />
       <Sidebar mode="home" />
 
