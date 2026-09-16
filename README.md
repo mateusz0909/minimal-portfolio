@@ -17,8 +17,8 @@ Next.js, React, TypeScript, Tailwind CSS
 ## Run Locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## Notes

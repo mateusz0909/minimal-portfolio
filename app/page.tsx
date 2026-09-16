@@ -181,13 +181,11 @@ export default function Home() {
             </div>
             <div>
               <p className="prose prose--strong">
-                By day, Product Owner at Assembly Global. By night, I make small, AI-powered tools and apps — bridging
-                product strategy and rapid engineering.
+                I turn product ideas into shipped software — fast. Product Owner at Assembly Global by day; AI tools
+                and native apps that reach real users by night.
               </p>
               <p className="prose prose--strong">
-                In the past year I&apos;ve shipped native iOS apps, a full-stack SaaS product, and AI-powered publishing
-                tools. Luma Breathwork reached a 13.3% App Store conversion rate, AuraSeason is live on the App Store,
-                and Daily Word turns a daily ritual into a full pipeline.
+                9 shipped in the last year, including an App Store app at 13.3% conversion.
               </p>
             </div>
           </div>
@@ -265,7 +263,7 @@ export default function Home() {
               &ldquo;Incredible app. Simple, clean, and gets straight to the point. The Apple Watch integration is
               flawless and it actually helps me calm down during busy workdays.&rdquo;
             </blockquote>
-            <div className="quote-source">App Store review · Luma Breathwork</div>
+            <div className="quote-source">Luma Breathwork · App Store review</div>
           </div>
         </section>
 
