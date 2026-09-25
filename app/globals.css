@@ -958,12 +958,12 @@
 }
 
 /* ---------- motion support ---------- */
-/* next sections are opaque sheets that slide over the drifting hero */
-.hero ~ .section,
-.case-hero ~ .section {
+/* content stacks above the background arc */
+.hero,
+.case-hero,
+.section {
   position: relative;
   z-index: 1;
-  background: var(--background);
 }
 /* room for the parallax drift */
 .work-thumb .bd,
@@ -972,11 +972,12 @@
 }
 .portrait-frame {
   overflow: hidden;
+  background: var(--background); /* hides the arc behind the photo */
 }
 /* one hairline arc behind the page (echoes the circle marks); animated in RevealInit */
 .bg-arc {
   position: fixed;
-  z-index: 2;
+  z-index: 0;
   top: 8vh;
   right: -62vmax;
   width: 110vmax;

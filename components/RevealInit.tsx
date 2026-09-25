@@ -186,7 +186,7 @@ export function RevealInit() {
           target = Math.max(prev, edge - vh)
         }
         if (target === undefined) return
-        lenis.scrollTo(lenis.scroll + target, { duration: 1.1, easing: (t) => 1 - Math.pow(1 - t, 4) })
+        lenis.scrollTo(scrollY + target, { duration: 1.1, easing: (t) => 1 - Math.pow(1 - t, 4) })
       }
       const onScroll = () => {
         clearTimeout(settle)
