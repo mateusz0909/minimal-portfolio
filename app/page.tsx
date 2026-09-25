@@ -166,7 +166,9 @@ export default function Home() {
               </div>
             </div>
             <div className="portrait">
-              <Image src={portrait} alt="Mateusz Byrtus" sizes="300px" placeholder="blur" />
+              <div className="portrait-frame">
+                <Image src={portrait} alt="Mateusz Byrtus" sizes="300px" placeholder="blur" />
+              </div>
               <div className="portrait-caption">Mateusz Byrtus — Warsaw</div>
             </div>
           </div>
