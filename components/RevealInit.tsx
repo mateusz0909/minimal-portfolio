@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 const HERO = '.hero, .case-hero'
 const GRIDS = '.work-grid, .skills-grid, .about-grid, .metric-grid'
 
-/** Site motion: smooth scroll, split-text intros, staggered reveals, scrubbed parallax.
+/** Site motion: smooth scroll, section anchoring, background arc, split-text intros, staggered reveals, scrubbed parallax.
     Reduced-motion users get plain fades only. Re-runs on route change. */
 export function RevealInit() {
   const pathname = usePathname()
@@ -154,7 +154,50 @@ export function RevealInit() {
         gsap.fromTo(el, { y: 24 }, { y: -24, ease: 'none', scrollTrigger: { trigger: el.parentElement, scrub: true } })
       })
 
+      // background arc: turns, rises and closes over the whole page
+      gsap
+        .timeline({ scrollTrigger: { start: 0, end: 'max', scrub: 1.2 } })
+        .fromTo('.bg-arc', { rotation: 0, yPercent: 0 }, { rotation: 150, yPercent: -18, ease: 'none' }, 0)
+        .fromTo('.bg-arc circle', { strokeDashoffset: 0.55 }, { strokeDashoffset: 0.02, ease: 'none' }, 0)
+      gsap.from('.bg-arc', { opacity: 0, duration: 2, delay: 0.6 })
+
+      // section anchoring (desktop pointer only): once scrolling settles, if the next section already
+      // fills >40% of the screen glide to its top; going up, glide back to the previous one.
+      // Tall sections (Work, Skills) stay freely scrollable because only boundaries on screen count.
+      // only user input arms it, so a finished glide never chains into the next one
+      let settle = 0
+      let armed = false
+      const arm = () => (armed = true)
+      addEventListener('wheel', arm, { passive: true })
+      addEventListener('keydown', arm)
+      const anchor = () => {
+        if (!armed || innerWidth <= 960 || !matchMedia('(pointer: fine)').matches) return
+        armed = false
+        const vh = innerHeight
+        const tops = gsap.utils
+          .toArray<HTMLElement>('.hero, .case-hero, .section')
+          .map((el) => el.getBoundingClientRect().top)
+        const edge = tops.find((t) => t > 2 && t < vh - 2)
+        if (edge === undefined) return
+        let target: number | undefined
+        if (lenis.direction === 1 && edge < vh * 0.6) target = edge
+        if (lenis.direction === -1 && edge > vh * 0.4) {
+          const prev = tops.filter((t) => t < edge).pop() ?? edge - vh
+          target = Math.max(prev, edge - vh)
+        }
+        if (target === undefined) return
+        lenis.scrollTo(lenis.scroll + target, { duration: 1.1, easing: (t) => 1 - Math.pow(1 - t, 4) })
+      }
+      const onScroll = () => {
+        clearTimeout(settle)
+        settle = window.setTimeout(anchor, 160)
+      }
+      lenis.on('scroll', onScroll)
+
       return () => {
+        clearTimeout(settle)
+        removeEventListener('wheel', arm)
+        removeEventListener('keydown', arm)
         gsap.ticker.remove(tick)
         lenis.destroy()
         document.documentElement.style.scrollBehavior = ''
@@ -164,5 +207,9 @@ export function RevealInit() {
     return () => mm.revert()
   }, [pathname])
 
-  return null
+  return (
+    <svg className="bg-arc" viewBox="0 0 1000 1000" aria-hidden>
+      <circle cx="500" cy="500" r="490" pathLength={1} />
+    </svg>
+  )
 }

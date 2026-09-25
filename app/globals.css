@@ -973,6 +973,29 @@
 .portrait-frame {
   overflow: hidden;
 }
+/* one hairline arc behind the page (echoes the circle marks); animated in RevealInit */
+.bg-arc {
+  position: fixed;
+  z-index: 2;
+  top: 8vh;
+  right: -62vmax;
+  width: 110vmax;
+  height: 110vmax;
+  pointer-events: none;
+  fill: none;
+}
+.bg-arc circle {
+  stroke: rgb(var(--ink) / 0.14);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0.55;
+}
+@media print {
+  .bg-arc {
+    display: none;
+  }
+}
 /* Lenis */
 html.lenis,
 html.lenis body {
