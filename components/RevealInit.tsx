@@ -13,22 +13,15 @@ const HERO = '.hero, .case-hero'
 const GRIDS = '.work-grid, .skills-grid, .about-grid, .metric-grid'
 
 /** Site motion: smooth scroll, section anchoring, background arc, split-text intros, staggered reveals, scrubbed parallax.
-    Reduced-motion users get plain fades only. Re-runs on route change. */
+    Re-runs on route change. */
 export function RevealInit() {
   const pathname = usePathname()
 
   useEffect(() => {
     const mm = gsap.matchMedia()
 
-    mm.add('(prefers-reduced-motion: reduce)', () => {
-      ScrollTrigger.batch('[data-reveal]', {
-        start: 'top bottom', // no clamp: elements already on screen must show at load
-        once: true,
-        onEnter: (els) => gsap.to(els, { opacity: 1, duration: 0.6, stagger: 0.08 }),
-      })
-    })
-
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    // ponytail: OS reduced-motion deliberately ignored (owner's call); restore a reduce branch if a11y complaints come
+    mm.add('all', () => {
       const lenis = new Lenis({ anchors: true, lerp: 0.1 })
       lenis.on('scroll', ScrollTrigger.update)
       const tick = (t: number) => lenis.raf(t * 1000)
