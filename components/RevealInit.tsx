@@ -22,7 +22,7 @@ export function RevealInit() {
 
     mm.add('(prefers-reduced-motion: reduce)', () => {
       ScrollTrigger.batch('[data-reveal]', {
-        start: 'clamp(top 95%)',
+        start: 'top bottom', // no clamp: elements already on screen must show at load
         once: true,
         onEnter: (els) => gsap.to(els, { opacity: 1, duration: 0.6, stagger: 0.08 }),
       })
