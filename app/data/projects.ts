@@ -1,10 +1,3 @@
-import type { StaticImageData } from 'next/image'
-import calmNowImg from '@/public/calmNow.png'
-import dztImg from '@/public/dzt-icon.png'
-import feelingJournalImg from '@/public/feelingJournal.jpeg'
-import lemmiImg from '@/public/lemmi.png'
-import lumaImg from '@/public/luma.png'
-
 export type ProjectSlug =
   | 'wake-the-book'
   | 'brain-plus'
@@ -37,8 +30,6 @@ export type Project = {
   }[]
   links?: { label: string; href: string; external?: boolean }[]
   video?: string
-  logo: StaticImageData | string
-  cover?: StaticImageData | string
 }
 
 export const projects: Project[] = [
@@ -94,8 +85,6 @@ export const projects: Project[] = [
     links: [
       { label: 'View on GitHub', href: 'https://github.com/mateusz0909/WakeTheBook', external: true },
     ],
-    logo: '/wakethebook.svg',
-    cover: '/wakethebook-cover.svg',
   },
   {
     slug: 'brain-plus',
@@ -149,8 +138,6 @@ export const projects: Project[] = [
     links: [
       { label: 'View on GitHub', href: 'https://github.com/mateusz0909/product-brain-plus', external: true },
     ],
-    logo: '/brain-plus.svg',
-    cover: '/brain-plus-cover.svg',
   },
   {
     slug: 'dopoki-zycie-trwa',
@@ -208,7 +195,6 @@ export const projects: Project[] = [
     links: [
       { label: 'Visit dopokizycietrwa.pl', href: 'https://dopokizycietrwa.pl', external: true },
     ],
-    logo: dztImg,
   },
   {
     slug: 'daily-word',
@@ -262,7 +248,6 @@ export const projects: Project[] = [
     links: [
       { label: 'Visit slowo.dopokizycietrwa.pl', href: 'https://slowo.dopokizycietrwa.pl/', external: true },
     ],
-    logo: '/dailyWord.svg',
   },
   {
     slug: 'aura-season',
@@ -320,8 +305,6 @@ export const projects: Project[] = [
         external: true,
       },
     ],
-    logo: '/auraSeason.png',
-    cover: '/auraSeason.png',
   },
   {
     slug: 'lemmi-studio',
@@ -373,8 +356,6 @@ export const projects: Project[] = [
     links: [
       { label: 'Visit lemmi.studio', href: 'https://lemmi.studio', external: true },
     ],
-    logo: lemmiImg,
-    cover: lemmiImg,
   },
   {
     slug: 'luma-breathwork',
@@ -386,12 +367,12 @@ export const projects: Project[] = [
       color: '#65D898',
     },
     description:
-      'A breathwork product built around ritual-like guided sessions, Apple Watch support, Health integrations, and post-launch iteration. Reached a 13.3% App Store conversion rate and keeps evolving through regular feature updates.',
+      'A breathwork product built around ritual-like guided sessions, Apple Watch support, Health integrations, and post-launch iteration. Free forever, no ads, supported by donations. Reached a 13.3% App Store conversion rate; an Android port (Jetpack Compose) is in progress.',
     technologies: ['Swift', 'SwiftUI', 'watchOS', 'HealthKit', 'WatchConnectivity', 'SwiftData', 'Swift Charts', 'WhatsNewKit'],
     metrics: [
       { label: 'Conversion rate', value: '13.3%' },
       { label: 'Platforms', value: 'iPhone + Apple Watch' },
-      { label: 'Status', value: 'Live product with ongoing updates' },
+      { label: 'Status', value: 'Free · Android port in progress' },
     ],
     sections: [
       {
@@ -431,8 +412,6 @@ export const projects: Project[] = [
       },
     ],
     video: '/luma-video.mp4',
-    logo: lumaImg,
-    cover: lumaImg,
   },
   {
     slug: 'feeling-journal',
@@ -487,8 +466,6 @@ export const projects: Project[] = [
         external: true,
       },
     ],
-    logo: feelingJournalImg,
-    cover: feelingJournalImg,
   },
   {
     slug: 'calm-now',
@@ -543,8 +520,6 @@ export const projects: Project[] = [
         external: true,
       },
     ],
-    logo: calmNowImg,
-    cover: calmNowImg,
   },
 ]
 
@@ -557,3 +532,6 @@ export function getProject(slug: string): Project | undefined {
 export function projectRoute(slug: ProjectSlug): ProjectRoute {
   return `/projects/${slug}` as ProjectRoute
 }
+
+/** Drives the single accent (live dot) — shipped and running, not archived. */
+export const isLive = (project: Project) => /live|active/i.test(project.status.label)

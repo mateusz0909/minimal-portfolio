@@ -27,3 +27,6 @@ docs/
 
 # Claude Code local config
 .claude/
+
+# TypeScript
+*.tsbuildinfo

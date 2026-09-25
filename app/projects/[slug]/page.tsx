@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { getProject, projects } from '@/app/data/projects'
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { getProject, isLive, projects } from '@/app/data/projects'
+import { AppMark } from '@/components/AppMark'
 import { VideoPreview } from '@/components/VideoPreview'
 import { ProjectVisual } from '@/components/ProjectVisual'
 
@@ -31,10 +33,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       {/* HERO */}
       <section className="case-hero">
         <Link href="/#work" className="back-link" data-reveal>
-          ← Back to work
+          <ArrowLeft className="icon" strokeWidth={1.5} aria-hidden />
+          Back to work
         </Link>
         <div className="case-hero-grid">
           <div data-reveal>
+            <AppMark slug={project.slug} size={56} className="case-mark" />
             <div className="case-eyebrow">Project Case Study</div>
             <h1 className="case-title">{project.title}</h1>
             <p className="case-sub">{project.subtitle}</p>
@@ -48,13 +52,16 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             </div>
           </div>
           <div data-reveal style={{ animationDelay: '.12s' }}>
-            <ProjectVisual slug={project.slug} variant="portrait" icon={project.logo} title={project.title} />
+            <ProjectVisual slug={project.slug} variant="portrait" />
           </div>
         </div>
         <div className="case-meta" data-reveal>
           <div>
             <div className="meta-label">Status</div>
-            <div className="meta-value">{project.status.label}</div>
+            <div className="meta-value">
+              {isLive(project) && <span className="live-dot" aria-hidden />}
+              {project.status.label}
+            </div>
           </div>
           <div>
             <div className="meta-label">Timeline</div>
@@ -71,7 +78,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
                   >
-                    {link.label} ↗
+                    {link.label}
+                    <ArrowUpRight className="icon" strokeWidth={1.5} aria-hidden />
                   </a>
                 ))}
               </div>
@@ -101,7 +109,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       {/* SHOWCASE BANNER — large graphic break */}
       <section className="section">
         <div data-reveal>
-          <ProjectVisual slug={project.slug} variant="banner" icon={project.logo} title={project.title} />
+          <ProjectVisual slug={project.slug} variant="banner" />
         </div>
       </section>
 
@@ -152,11 +160,17 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       {/* PREV / NEXT */}
       <section className="section case-nav">
         <Link href={`/projects/${prev.slug}`} className="case-nav-link" data-reveal>
-          <span className="case-nav-label">← Previous</span>
+          <span className="case-nav-label">
+            <ArrowLeft className="icon" strokeWidth={1.5} aria-hidden />
+            Previous
+          </span>
           <span className="case-nav-title">{prev.title}</span>
         </Link>
         <Link href={`/projects/${next.slug}`} className="case-nav-link case-nav-link--next" data-reveal>
-          <span className="case-nav-label">Next →</span>
+          <span className="case-nav-label">
+            Next
+            <ArrowRight className="icon" strokeWidth={1.5} aria-hidden />
+          </span>
           <span className="case-nav-title">{next.title}</span>
         </Link>
       </section>

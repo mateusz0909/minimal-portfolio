@@ -29,9 +29,6 @@ export default {
         sand: '#D6D3D1',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'sans-serif'],
-        serif: ['var(--font-newsreader)', 'serif'],
-        mono: ['var(--font-jetbrains-mono)', 'monospace'],
         jost: ['var(--font-jost)', 'sans-serif'],
         hanken: ['var(--font-hanken)', 'sans-serif'],
       },

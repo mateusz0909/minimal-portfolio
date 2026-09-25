@@ -1,26 +1,16 @@
-# Mateusz Byrtus Portfolio
+# mateuszbyrtus.com
 
-> **Status:** Active portfolio site
-
-A Next.js portfolio for recruiter review: role, shipped work, project evidence, contact paths, SEO, and performance.
-
-## What This Repo Shows
-
-- AI Product Owner positioning with direct project proof.
-- Case studies covering discovery, execution, and post-launch iteration.
-- Minimal visual system focused on scanning and readability.
+Personal site of Mateusz Byrtus — Senior Product Owner at Godel Technologies who builds and ships small native apps and AI tools.
 
 ## Tech
 
-Next.js, React, TypeScript, Tailwind CSS
+Next.js 14 (App Router), React, TypeScript, Tailwind CSS. Jost + Hanken Grotesk via `next/font`, icons from `lucide-react`, project marks as inline SVG (`components/AppMark.tsx`).
 
-## Run Locally
+## Run locally
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## Notes
-
-This repository powers my public portfolio.
+Project content lives in `app/data/projects.ts`.
