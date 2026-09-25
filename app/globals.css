@@ -975,3 +975,96 @@
     gap: 28px;
   }
 }
+
+/* ========================================================================
+   Scroll-driven motion — CSS only, compositor-friendly (translate/scale/opacity).
+   Unsupported browsers and reduced-motion users get the static page.
+   ======================================================================== */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* hero lags and fades while the next section slides over it like a sheet */
+    .hero,
+    .case-hero {
+      animation: hero-lag linear both;
+      animation-timeline: view();
+      animation-range: exit;
+    }
+    .hero ~ .section,
+    .case-hero ~ .section {
+      position: relative;
+      z-index: 1;
+      background: var(--background);
+    }
+
+    /* section dividers draw across as the section enters */
+    .section {
+      position: relative;
+      border-top-color: transparent;
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border);
+      transform-origin: left;
+      animation: draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50vh;
+    }
+    .rule {
+      transform-origin: left;
+      animation: draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35vh;
+    }
+
+    /* depth: pattern drifts behind the still mark */
+    .work-thumb .bd,
+    .pv-bd {
+      inset: -14% 0;
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    .pv-mark .app-mark {
+      animation: drift-up linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    .portrait {
+      animation: drift-up linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+  }
+}
+@keyframes hero-lag {
+  to {
+    translate: 0 35%;
+    opacity: 0.15;
+  }
+}
+@keyframes draw {
+  from {
+    scale: 0 1;
+  }
+}
+@keyframes drift {
+  from {
+    translate: 0 -9%;
+  }
+  to {
+    translate: 0 9%;
+  }
+}
+@keyframes drift-up {
+  from {
+    translate: 0 28px;
+  }
+  to {
+    translate: 0 -28px;
+  }
+}
