@@ -992,7 +992,7 @@
   stroke-dasharray: 1;
   stroke-dashoffset: 0.55;
 }
-@media print {
+@media print, (max-width: 960px) {
   .bg-arc {
     display: none;
   }

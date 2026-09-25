@@ -8,6 +8,8 @@ import { SplitText } from 'gsap/SplitText'
 import Lenis from 'lenis'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
+// mobile URL-bar show/hide must not re-measure triggers mid-scroll (causes jumps)
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 const HERO = '.hero, .case-hero'
 const GRIDS = '.work-grid, .skills-grid, .about-grid, .metric-grid'
@@ -135,18 +137,6 @@ export function RevealInit() {
         gsap.fromTo(frame.children, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: frame, scrub: true } })
       })
 
-      // depth: patterns drift one way, marks the other
-      gsap.utils.toArray<HTMLElement>('.work-thumb .bd, .pv-bd').forEach((el) => {
-        gsap.fromTo(
-          el,
-          { yPercent: -12 },
-          { yPercent: 12, ease: 'none', scrollTrigger: { trigger: el.parentElement, scrub: true } },
-        )
-      })
-      gsap.utils.toArray<HTMLElement>('.work-thumb .app-mark, .pv-mark').forEach((el) => {
-        gsap.fromTo(el, { y: 24 }, { y: -24, ease: 'none', scrollTrigger: { trigger: el.parentElement, scrub: true } })
-      })
-
       // background arc: turns, rises and closes over the whole page
       gsap
         .timeline({ scrollTrigger: { start: 0, end: 'max', scrub: 1.2 } })
@@ -195,6 +185,21 @@ export function RevealInit() {
         lenis.destroy()
         document.documentElement.style.scrollBehavior = ''
       }
+    })
+
+    // desktop only: scrubbed parallax jitters under native touch scroll
+    mm.add('(min-width: 961px)', () => {
+      // depth: patterns drift one way, marks the other
+      gsap.utils.toArray<HTMLElement>('.work-thumb .bd, .pv-bd').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { yPercent: -12 },
+          { yPercent: 12, ease: 'none', scrollTrigger: { trigger: el.parentElement, scrub: true } },
+        )
+      })
+      gsap.utils.toArray<HTMLElement>('.work-thumb .app-mark, .pv-mark').forEach((el) => {
+        gsap.fromTo(el, { y: 24 }, { y: -24, ease: 'none', scrollTrigger: { trigger: el.parentElement, scrub: true } })
+      })
     })
 
     return () => mm.revert()
