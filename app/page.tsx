@@ -125,16 +125,6 @@ export default function Home() {
           </div>
           <div data-reveal className="hero-grid" style={{ animationDelay: '.28s' }}>
             <div>
-              <div className="now-label">
-                <span className="live-dot" aria-hidden />
-                Now · September 2026
-              </div>
-              <ul className="now-list">
-                <li>Porting Luma to Android (Jetpack Compose), built agent-first with Claude Code</li>
-                <li>Shaping an AI-first PO/BA playbook at Godel</li>
-              </ul>
-            </div>
-            <div>
               <p className="prose prose--strong">
                 I turn product ideas into shipped software — fast. Senior Product Owner / BA at Godel Technologies,
                 building AI-first delivery workflows with Claude Code and agents.
